@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 
 class ActivitiesWidget extends LitElement {
     // Types without TypeScript? I guess??
@@ -26,9 +26,6 @@ class ActivitiesWidget extends LitElement {
         this.addEventListener("mouseenter", this._stopAutoAdvance.bind(this));
         this.addEventListener("mouseleave", this._startAutoAdvance.bind(this));
         // Automatically switch to next activity every 10 seconds
-        /* this._autoAdvanceInterval = setInterval(() => {
-            this._moveNext();
-        }, 8000); */
     }
 
     _startAutoAdvance() {

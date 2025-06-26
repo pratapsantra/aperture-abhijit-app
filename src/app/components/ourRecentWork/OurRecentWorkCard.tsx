@@ -506,7 +506,7 @@ export default function OurRecentWorkCard() {
         }
 
         // Add observer to detect active card changes
-        let previousActive: any = null;
+        let previousActive = null;
 
         // Create a mutation observer to watch for class changes
         const observer = new MutationObserver((mutations) => {
