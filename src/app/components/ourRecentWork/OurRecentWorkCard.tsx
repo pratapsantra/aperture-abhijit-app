@@ -3,8 +3,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import './RecentWork.css'
-import Script from 'next/script'
-// import styles from './RecentWork.module.css';
 
 const carouselItems = [
     {
@@ -92,26 +90,7 @@ const carouselItems = [
 
 export default function OurRecentWorkCard() {
 
-    const trackRef = useRef<HTMLUListElement | null>(null);
-    const nextButtonRef = useRef<HTMLUListElement | null>(null);
-    const prevButtonRef = useRef<HTMLUListElement | null>(null);
-    const containerRef = useRef<HTMLUListElement | null>(null);
-    const indicatorsRef = useRef<HTMLUListElement | null>(null);
-
     const mainContainerRef = useRef<HTMLDivElement>(null);
-
-
-    const [isAutoFromnext, setIsAutoFromnext] = useState<boolean>(true);
-    // const [currentIndex, setCurrentIndex] = useState(0);
-
-    /* const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % carouselItems.length);
-    }; */
-
-    /*  const prevSlide = () => {
-         setCurrentIndex((prev) => (prev - 1 + carouselItems.length) % carouselItems.length);
-     };
-  */
 
     useEffect(() => {
 
@@ -689,18 +668,6 @@ export default function OurRecentWorkCard() {
                 startAutoMove();
             });
         });
-
-        /* carouselContainer?.addEventListener('mouseenter', () => {
-            console.log("mouseenter------")
-            clearTimeout(autoStartTimeout); // Stop initial delay
-            // stopAutoMove(); // Stop ongoing movement
-        });
-
-        carouselContainer?.addEventListener('mouseleave', () => {
-            // Resume immediately (or reapply delay if you want)
-            console.log("mouseleave------")
-            // startAutoMove();
-        }); */
 
         return () => {
             // Cleanup logic if necessary

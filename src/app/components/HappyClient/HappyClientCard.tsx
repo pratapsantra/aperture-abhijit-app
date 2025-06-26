@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './HappyClient.css';
 
 
@@ -49,7 +49,7 @@ const OurRecentWorkCard: React.FC = () => {
         <activities-widget>
 
             {activities.map((item, index) => (
-                <div className="activity">
+                <div className="activity" key={index}>
                     <div className="img">
                         <Image
                             src={item.imageUrl}

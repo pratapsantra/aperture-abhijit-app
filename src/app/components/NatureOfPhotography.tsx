@@ -3,9 +3,6 @@
 
 import React from 'react';
 
-import ProjectCard from '../components/ourServices/ProjectCard'
-import ourServices from '../JsonData/ourServices.json'
-
 export default function OurServicesPage() {
   return (
     <section className='section-container'>

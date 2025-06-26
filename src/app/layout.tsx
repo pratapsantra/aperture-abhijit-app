@@ -4,8 +4,7 @@ import { Geist, Geist_Mono, Roboto  } from "next/font/google";
 import "./globals.css";
 import './cover.carousel.css'
 import './globalCustome.css'
-import styles from "./page.module.css";
-import React, { ReactNode } from 'react';
+import React, from 'react';
 import { Navbar } from '../app/navigationbar/page'
 
 
