@@ -42,7 +42,7 @@ class ActivitiesWidget extends LitElement {
     }
 
     _makeActive(index) {
-        this.allActivities.forEach((activity, i) => {
+        this.allActivities.forEach((activity) => {
             activity.classList.remove("active");
         });
         this.allActivities[index].classList.add("active");
