@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useEffect } from 'react';
 import './HappyClient.css';
 
+
 interface Activity {
     title: string;
     description: string;
@@ -36,7 +37,7 @@ const OurRecentWorkCard: React.FC = () => {
 
     useEffect(() => {
         // Only load the Lit component once, in browser
-        import('../../components/activities-widget');
+        import('../../components/activities-widget.js');
 
         return () => {
             // Cleanup logic if necessary
@@ -44,29 +45,30 @@ const OurRecentWorkCard: React.FC = () => {
     }, []);
     return (
 
+        <>
+            {/* <activities-widget> */}
 
-        <activities-widget>
-
-            {activities.map((item, index) => (
-                <div className="activity" key={index}>
-                    <div className="img">
-                        <Image
-                            src={item.imageUrl}
-                            alt={``}
-                            width={400}
-                            height={250}
-                            style={{ objectFit: 'cover' }}
-                        />
+                {activities.map((item, index) => (
+                    <div className="activity" key={index}>
+                        <div className="img">
+                            <Image
+                                src={item.imageUrl}
+                                alt={``}
+                                width={400}
+                                height={250}
+                                style={{ objectFit: 'cover' }}
+                            />
+                        </div>
+                        <div className="text">
+                            <h3>{item.title}</h3>
+                            <p>{item.description}</p>
+                        </div>
                     </div>
-                    <div className="text">
-                        <h3>{item.title}</h3>
-                        <p>{item.description}</p>
-                    </div>
-                </div>
-            ))}
+                ))}
 
-            
-        </activities-widget>
+
+            {/* </activities-widget> */}
+        </>
     );
 };
 

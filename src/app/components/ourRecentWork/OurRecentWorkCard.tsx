@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
@@ -92,7 +93,7 @@ export default function OurRecentWorkCard() {
 
     const mainContainerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+    /* useEffect(() => {
 
         const mainContainer = mainContainerRef.current;
         if (!mainContainer) return;
@@ -584,38 +585,7 @@ export default function OurRecentWorkCard() {
         }, 500);
         // };
 
-        // Add listeners after 3 seconds
-
-        // Auto-start after 3 seconds
-        /* setTimeout(() => {
-            console.log("Auto start carousel");
-
-            const totalItems = carouselItems.length;
-            let nextOnwards = true
-            const autoMove = setInterval(() => {
-                const nextIndex = currentIndex + 1;
-
-                if (nextIndex < totalItems && nextOnwards) {
-                    if (nextIndex === (totalItems - 1)) {
-                        nextOnwards = false
-                    }
-                    moveToSlide(nextIndex);
-                } else {
-                    // At the end, go one step back
-                    console.log("Reached end. Moving back one slide.", isAutoFromnext);
-                    const prevIndex = currentIndex - 1;
-                    if (prevIndex >= 0) {
-                        if (prevIndex === 0) {
-                            nextOnwards = true
-                        }
-                        moveToSlide(prevIndex);
-                    }
-                    // Optionally stop auto-advance after that
-                    // clearInterval(autoMove);
-                }
-            }, 3000); // Move every 3 seconds
-
-        }, 3000); // Wait 3 seconds before starting */
+        
 
         let autoMove: any;
         let autoStartTimeout;
@@ -672,7 +642,7 @@ export default function OurRecentWorkCard() {
         return () => {
             // Cleanup logic if necessary
         };
-    }, []);
+    }, []); */
 
 
 
@@ -730,7 +700,7 @@ export default function OurRecentWorkCard() {
 
                 <div className="carousel-indicators">
                     {carouselItems.map((item, index) => (
-                        <div className="indicator active"></div>
+                        <div className="indicator active" key={index}></div>
                     ))}
                 </div>
             </div>

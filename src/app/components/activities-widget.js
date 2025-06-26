@@ -57,6 +57,7 @@ class ActivitiesWidget extends LitElement {
     }
 
     _movePrevious(e) {
+        console.log("eeeeeeee------", e)
         this.activeActivity--;
         if (this.activeActivity < 1) {
             this.activeActivity = this.count;
@@ -67,6 +68,7 @@ class ActivitiesWidget extends LitElement {
     }
 
     _moveNext(e) {
+        console.log("eeeeeeee------", e)
         this.activeActivity++;
         if (this.activeActivity > this.count) {
             this.activeActivity = 1;
