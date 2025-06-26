@@ -1,0 +1,30 @@
+.infoContainer {
+  align-self: stretch;
+  width: 100%;
+  min-height: 105px;
+  margin-top: 20px;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.title {
+    font-family: var(--font-roboto);
+  color: #2a282f;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.description {
+  font-family: var(--font-roboto);
+  color: #625f68;
+  margin: 10px 0 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

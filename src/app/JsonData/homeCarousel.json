@@ -1,0 +1,44 @@
+[
+  {
+    "backgroundImage": "/c1.jpg",
+    "title": "Pratap Lossless Youths",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+    "isReadMore": true,
+    "readMoreText": "Read More"
+  },
+  {
+    "backgroundImage": "/c2.jpg",
+    "title": "Estrange Bond",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+    "isReadMore": true,
+    "readMoreText": "Read More"
+  },
+  {
+    "backgroundImage": "/c3.jpg",
+    "title": "The Gate Keeper",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+    "isReadMore": true,
+    "readMoreText": "Read More"
+  },
+  {
+    "backgroundImage": "/c4.jpg",
+    "title": "Last Trace Of Us",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+    "isReadMore": true,
+    "readMoreText": "Read More"
+  },
+  {
+    "backgroundImage": "/c5.jpg",
+    "title": "Urban Decay",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+    "isReadMore": true,
+    "readMoreText": "Read More"
+  },
+  {
+    "backgroundImage": "/c6.jpg",
+    "title": "The Migration",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+    "isReadMore": true,
+    "readMoreText": "Read More"
+  }
+]

@@ -1,0 +1,15 @@
+.statsContainer {
+  background-color: #252525;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  right:10px;
+  bottom:10px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.countNumber {
+  font-weight: 700;
+}

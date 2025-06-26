@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/us1.jpg",
+    "projectCount": 350,
+    "title": "Wedding Photography",
+    "description": "Capture every moment of your special day with stunning wedding photography that tells your story beautifully.",
+    "buttonText": "See Our Projects",
+    "isButtonClick": true,
+    "projectUrl": ""
+  },
+  {
+    "id": 2,
+    "imageUrl": "/us2.jpg",
+    "projectCount": 15,
+    "title": "Pre-Wedding Photoshoot",
+    "description": "Pre-wedding shoots are a great way to capture special moments with your partner before the big day. Choose a theme you love and make lasting memories together.",
+    "buttonText": "See Our Projects",
+    "isButtonClick": true,
+    "projectUrl": ""
+  },
+  {
+    "id": 3,
+    "imageUrl": "/us3.jpg",
+    "projectCount": 10,
+    "title": "Candid Wedding Photography",
+    "description": "Experience the magic of real smiles and heartfelt moments with our in-demand candid wedding photography.",
+    "buttonText": "See Our Projects",
+    "isButtonClick": true,
+    "projectUrl": ""
+  },
+  {
+    "id": 4,
+    "imageUrl": "/us4.jpg",
+    "projectCount": 10,
+    "title": "Maternity & Baby Photography",
+    "description": "Cherish the golden beginnings of your new life and the precious moments with your baby—beautifully captured by us.",
+    "buttonText": "See Our Projects",
+    "isButtonClick": true,
+    "projectUrl": ""
+  },
+  {
+    "id": 5,
+    "imageUrl": "/us5.jpg",
+    "projectCount": 10,
+    "title": "Rice Ceremony Photography",
+    "description": "Mark your baby’s first milestone with heartfelt, creative photography that turns precious moments into adorable memories.",
+    "buttonText": "See Our Projects",
+    "isButtonClick": true,
+    "projectUrl": ""
+  },
+  {
+    "id": 6,
+    "imageUrl": "/us6.jpg",
+    "projectCount": 10,
+    "title": "Office Event Photography",
+    "description": "Turn every office event into a visual story with our dynamic and professional event photography—perfect for team highlights, internal communications, and brand promotion.",
+    "buttonText": "See Our Projects",
+    "isButtonClick": true,
+    "projectUrl": ""
+  }
+]

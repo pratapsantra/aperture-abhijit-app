@@ -1,0 +1,26 @@
+.actionButton {
+  background-color: #ff5603;
+  border: none;
+  border-radius: 5px;
+  max-width: 100%;
+  padding: 9px 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin:20px 0 20px 10px;
+}
+
+.actionButton:hover {
+  background-color: #e64a02;
+}
+
+.actionButton:active {
+  background-color: #cc4102;
+}
+
+.actionButton:focus {
+  outline: 2px solid #ff5603;
+  outline-offset: 2px;
+}
