@@ -47,7 +47,7 @@
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: start;
   width: 100%;
   min-height: 41px;
