@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 import './navigation.css'
 import Image from 'next/image';
 import companyLogo from '../assets/images/company-logo.jpg'
-// import companyLogo from '../../../public/company-logo.svg'
 
-export const Navbar: React.FC = () => {
+// export const Navbar: React.FC = () => {
+export default function Navbar() {
 
     const navbarRef = useRef<HTMLDivElement>(null);
     const navToggleRef = useRef<HTMLDivElement>(null);
@@ -252,3 +252,4 @@ export const Navbar: React.FC = () => {
         </>
     );
 };
+// export default Navbar;

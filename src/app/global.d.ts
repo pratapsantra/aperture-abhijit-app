@@ -7,4 +7,10 @@ declare namespace JSX {
       name?: string;
     };
   }
+  interface IntrinsicElements {
+    'ion-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+      name: string;
+    };
+  }
 }
+

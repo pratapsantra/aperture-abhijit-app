@@ -4,8 +4,8 @@ import { Geist, Geist_Mono, Roboto  } from "next/font/google";
 import "./globals.css";
 import './cover.carousel.css'
 import './globalCustome.css'
-import React, from 'react';
-import { Navbar } from '../app/navigationbar/page'
+import React from 'react';
+import  Navbar  from '../app/navigationbar/page'
 
 
 const geistSans = Geist({
