@@ -3,7 +3,6 @@ import Image from 'next/image';
 import React, { useEffect } from 'react';
 import './HappyClient.css';
 
-
 interface Activity {
     title: string;
     description: string;

@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 import homeCarousel from '../JsonData/homeCarousel.json'
+import IonIcon from '@reacticons/ionicons';
 
 export default function Carousel() {
 
@@ -65,8 +66,8 @@ export default function Carousel() {
                     ))}
                 </ul>
                 <nav className='nav'>
-                    <ion-icon className='btn prev' name="arrow-back-outline"></ion-icon>
-                    <ion-icon className='btn next' name="arrow-forward-outline"></ion-icon>
+                    <IonIcon className='btn prev' name="arrow-back-outline"></IonIcon>
+                    <IonIcon className='btn next' name="arrow-forward-outline"></IonIcon>
                 </nav>
             </main>
 
