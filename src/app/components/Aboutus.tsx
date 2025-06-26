@@ -1,6 +1,4 @@
 // app/about/page.tsx
-'use client';
-
 import React from 'react';
 
 export default function AboutPage({sectionNo}:{sectionNo:any}) {
