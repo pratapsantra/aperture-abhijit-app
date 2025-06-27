@@ -10,7 +10,7 @@ export default function Home() {
     <>
       {/* <Carousel /> */}
       <OurServices/>
-      {/* <OurRecentWork /> */}
+      <OurRecentWork />
       {/* <HappyClient /> */}
       {/* <OurTeam /> */}
       <NatureOfPhotography />
