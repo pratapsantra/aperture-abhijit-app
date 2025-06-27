@@ -10,8 +10,8 @@ export default function Home() {
     <>
       {/* <Carousel /> */}
       <OurServices/>
-      <OurRecentWork />
-      {/* <HappyClient /> */}
+      {/* <OurRecentWork /> */}
+      <HappyClient />
       {/* <OurTeam /> */}
       <NatureOfPhotography />
     </>
