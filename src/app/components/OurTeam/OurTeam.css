@@ -37,7 +37,7 @@ body {
 }
 
 .our-team.carousel-container {
-    width: 100%;
+    width: 100vw;
     /* max-width: 1200px; */
     height: 450px;
     position: relative;
