@@ -4,13 +4,14 @@ import React, { useEffect } from 'react';
 import './HappyClient.css';
 
 
-interface Activity {
+/* interface Activity {
     title: string;
     description: string;
     imageUrl: string;
-}
+} */
 
-const activities: Activity[] = [
+// const activities: Activity[] = [
+const activities = [
     {
         title: 'Ice Catch',
         description: "I recently connected with Abijit Photography for my pre-wedding shoot, and the experience was absolutely fantastic! The photographer did an incredible job and made the entire shoot truly memorable. I’ll definitely be reaching out to them again for my wedding photography. Highly recommended!",
@@ -33,11 +34,12 @@ const activities: Activity[] = [
     },
 ];
 
-const OurRecentWorkCard: React.FC = () => {
+// const OurRecentWorkCard: React.FC = () => {
+export default function OurRecentWorkCard() {
 
     useEffect(() => {
         // Only load the Lit component once, in browser
-        import('../../components/activities-widget.js');
+        import('../activities-widget.js');
 
         return () => {
             // Cleanup logic if necessary
@@ -46,7 +48,7 @@ const OurRecentWorkCard: React.FC = () => {
     return (
 
         <>
-            {/* <activities-widget> */}
+            <activities-widget>
 
                 {activities.map((item, index) => (
                     <div className="activity" key={index}>
@@ -67,9 +69,9 @@ const OurRecentWorkCard: React.FC = () => {
                 ))}
 
 
-            {/* </activities-widget> */}
+            </activities-widget>
         </>
     );
 };
 
-export default OurRecentWorkCard;
+// export default OurRecentWorkCard;

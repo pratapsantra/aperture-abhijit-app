@@ -91,9 +91,9 @@ const carouselItems = [
 
 export default function OurRecentWorkCard() {
 
-    const mainContainerRef = useRef<HTMLDivElement>(null);
+    const mainContainerRef = useRef(null);
 
-    /* useEffect(() => {
+    useEffect(() => {
 
         const mainContainer = mainContainerRef.current;
         if (!mainContainer) return;
@@ -102,7 +102,7 @@ export default function OurRecentWorkCard() {
         if (!track) return;
 
         // const track = document.querySelector(".carousel-track");
-        const cards = Array.from(track.children) as HTMLElement[];
+        const cards = Array.from(track.children);
         const nextButton = document.querySelector(".carousel-button.next");
         const prevButton = document.querySelector(".carousel-button.prev");
         const container = document.querySelector(".carousel-container");
@@ -587,7 +587,7 @@ export default function OurRecentWorkCard() {
 
         
 
-        let autoMove: any;
+        let autoMove;
         let autoStartTimeout;
         let nextOnwards = true;
 
@@ -642,7 +642,7 @@ export default function OurRecentWorkCard() {
         return () => {
             // Cleanup logic if necessary
         };
-    }, []); */
+    }, []);
 
 
 
