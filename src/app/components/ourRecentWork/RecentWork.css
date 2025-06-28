@@ -413,7 +413,7 @@
 	.carousel-card {
 		min-width: 260px;
 		max-width: 260px;
-		margin: 0 15px;
+		/* margin: 0 19px; */
 	}
 
 	.carousel-card:not(.is-active) {

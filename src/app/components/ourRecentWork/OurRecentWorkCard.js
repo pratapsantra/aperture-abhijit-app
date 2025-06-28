@@ -628,13 +628,13 @@ export default function OurRecentWorkCard() {
 
         carouselCards.forEach(card => {
             card.addEventListener('mouseenter', () => {
-                console.log("mouseenter------");
+                // console.log("mouseenter------");
                 clearTimeout(autoStartTimeout);
                 stopAutoMove();
             });
 
             card.addEventListener('mouseleave', () => {
-                console.log("mouseleave------");
+                // console.log("mouseleave------");
                 startAutoMove();
             });
         });
