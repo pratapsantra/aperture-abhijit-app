@@ -8,7 +8,7 @@ import NatureOfPhotography from '../app/components/NatureOfPhotography'
 export default function Home() {
   return (
     <>
-      {/* <Carousel /> */}
+      <Carousel />
       <OurServices/>
       <OurRecentWork />
       <HappyClient />
