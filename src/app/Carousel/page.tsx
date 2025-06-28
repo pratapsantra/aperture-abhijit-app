@@ -50,7 +50,7 @@ export default function Carousel() {
 
     return (
         <>
-            <main>
+            <div className='main-carousel'>
                 <ul className='slider' ref={sliderRef}>
                     {homeCarousel?.map((item, index) => (
                         <li className='item' key={index} style={{ backgroundImage: `url('${item.backgroundImage}')` }}>
@@ -69,7 +69,7 @@ export default function Carousel() {
                     <IonIcon className='btn prev' name="arrow-back-outline"></IonIcon>
                     <IonIcon className='btn next' name="arrow-forward-outline"></IonIcon>
                 </nav>
-            </main>
+            </div>
 
             <Script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></Script>
             <Script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></Script>

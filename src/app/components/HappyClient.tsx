@@ -10,7 +10,7 @@ export default function OurRecentWorkPage() {
       <div className='inner-container'>
         <div className='heading-container'>
           <div className='heading-text-container'>
-            Happy Client
+            <h3>Happy Client</h3>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ export default function OurServicesPage() {
       <div className='inner-container'>
         <div className='heading-container'>
           <div className='heading-text-container'>
-            Our Services
+            <h3>Our Services</h3>
           </div>
         </div>
         <div className='our-services-bottom-container'>

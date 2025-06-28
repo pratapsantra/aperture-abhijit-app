@@ -35,9 +35,7 @@
 }
 
 .heading-text-container {
-    font-size: 50px;
-    font-family: var(--font-roboto);
-    font-weight: 100;
+
     margin-top: 30px;
     margin-bottom: 30px;
     justify-content: center;
@@ -46,6 +44,9 @@
 
 .heading-text-container h3 {
     text-align: center;
+    font-size: 50px;
+    font-family: var(--font-roboto);
+    font-weight: 100;
 }
 
 .bottom-container {
