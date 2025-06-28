@@ -43,7 +43,7 @@
     height: 450px;
     /* position: relative; */
     perspective: 1000px;
-    border: 1px solid rgb(171, 14, 219);
+    /* border: 1px solid rgb(171, 14, 219); */
     overflow-x: hidden;
 }
 
@@ -56,7 +56,7 @@
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 3px solid rgb(255, 153, 0);
+    /* border: 3px solid rgb(255, 153, 0); */
 }
 
 .our-team .card {
