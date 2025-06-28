@@ -58,9 +58,9 @@ export default function Carousel() {
                                 <h2 className='title'>{item.title}</h2>
                                 <p className='description'>{item.description}
                                 </p>
-                                {item.isReadMore ?
+                                {/* {item.isReadMore ?
                                     <button>Read More</button>
-                                    : null}
+                                    : null} */}
                             </div>
                         </li>
                     ))}
