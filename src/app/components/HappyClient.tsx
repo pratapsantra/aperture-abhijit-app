@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import OurRecentWorkCard from '../components/HappyClient/HappyClientCard'
+import HappyClientCard from '../components/HappyClient/HappyClientCard'
 
 export default function OurRecentWorkPage() {
   return (
@@ -15,7 +15,7 @@ export default function OurRecentWorkPage() {
         </div>
       </div>
       <div>
-        <OurRecentWorkCard />
+        <HappyClientCard />
       </div>
     </section>
   );

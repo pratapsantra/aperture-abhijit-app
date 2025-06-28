@@ -10,25 +10,28 @@
 }
 
 activities-widget {
-    margin-top: 50px;
+  margin-top: 50px;
   container: activities-widget / inline-size;
 
   inline-size: min(100%, 425px);
   margin-inline: auto;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1lh auto auto;
+  grid-template-columns: 20fr 20fr;
+  /* grid-template-rows: 1lh auto auto; */
+  grid-template-rows: auto auto;
   gap: 0.5rem 2rem;
 
-  > * {
+  >* {
     grid-area: 1 / 1 / 1 / 1;
   }
 
-  > .activity {
+  >.activity {
     display: grid;
     grid-template-rows: subgrid;
     grid-template-columns: subgrid;
+
+    align-items: center;
 
     grid-column: 1 / -1;
     grid-row: 1 / -1;
@@ -36,7 +39,7 @@ activities-widget {
     /* Using a div wrapper here because Firefox was blowing out the grid when making the image itself aspect-ratio: 1; */
     .img {
       grid-column: 1 / 2;
-      grid-row: 1 / 4;
+      grid-row: 1 / 6;
       width: 100%;
       aspect-ratio: 1;
 
@@ -47,8 +50,8 @@ activities-widget {
 
       rotate: var(--imgRotate, 0deg);
       transition: 0.2s;
-      
-      > img {
+
+      >img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -61,16 +64,19 @@ activities-widget {
         --imgRotate: 4deg;
       }
     }
+
     &:nth-child(2) {
       .img {
         --imgRotate: -2deg;
       }
     }
+
     &:nth-child(3) {
       .img {
         --imgRotate: -9deg;
       }
     }
+
     &:nth-child(4) {
       .img {
         --imgRotate: 7deg;
@@ -78,21 +84,38 @@ activities-widget {
     }
 
     .text {
-      width: 125%;
+      width: 100%;
       grid-column: 2 / 3;
       grid-row: 2 / 3;
+      grid-area: auto;
 
-      color: light-dark(rgba(30, 30, 30, 0.6), rgba(240, 240, 240, 0.6));
+      color: light-dark(rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.6));
       opacity: 0;
 
       translate: 0 20px;
       transition: 0.5s cubic-bezier(0.85, 0, 0.15, 1);
 
       pointer-events: none;
+      /* margin-top: 40px; */
 
       h3 {
-        color: light-dark(black, rgb(170, 28, 28));
-        margin: 0;
+        color: light-dark(black, rgb(0, 0, 0));
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-family: var(--font-roboto);
+        color: #2f2828;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      p {
+        font-family: var(--font-roboto);
+        color: #625f68;
+        margin: 10px 0 0 0;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.4;
+
       }
     }
 
@@ -109,24 +132,26 @@ activities-widget {
       }
     }
 
-    @container activities-widget (width < 300px) {
+    @container activities-widget (width < 400px) {
       display: block;
       padding: 1rem;
 
       .activity {
         display: block;
         margin-block-end: 3rem;
+
         .img {
           max-inline-size: 125px;
           margin-inline: auto;
           margin-block-end: 0.5rem;
         }
+
         .text {
           opacity: 1;
           translate: 0 0;
           pointer-events: all;
           background: none;
-          color:'#ff0000'
+          color: '#ff0000'
         }
       }
     }
@@ -146,29 +171,32 @@ activities-widget {
     place-self: end;
     z-index: 99;
 
-    > button {
+
+    >button {
       border: 1px solid light-dark(black, white);
       background: 0;
       border-radius: 50px;
       aspect-ratio: 1;
       width: 25px;
+
       &:hover {
         background: CanvasText;
         color: Canvas;
       }
     }
 
-    @container activities-widget (width < 300px) {
+    @container activities-widget (width < 400px) {
       display: none;
     }
   }
+
   .activities-count {
-    grid-column: 2 / -1;
+    /* grid-column: 2 / -1; */
     place-self: start;
     z-index: 99;
-    color: light-dark(rgba(30, 30, 30, 0.6), rgba(240, 240, 240, 0.6));
+    color: light-dark(rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.6), );
 
-    @container activities-widget (width < 300px) {
+    @container activities-widget (width < 400px) {
       display: none;
     }
   }
@@ -181,13 +209,21 @@ activities-widget {
 }
 
 @keyframes moveOutIn {
+
   /* image */
   50% {
     translate: -100% 0;
     scale: 1.15;
   }
+
   100% {
     translate: 0 0;
     z-index: 1;
+  }
+}
+
+@media (width < 650px) {
+  .text {
+    margin-top: 40px;
   }
 }
