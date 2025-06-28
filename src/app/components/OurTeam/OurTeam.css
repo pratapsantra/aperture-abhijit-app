@@ -37,12 +37,12 @@
 } */
 
 .our-team.carousel-container {
-    width: 100vw;
+    /* width: calc(100vw - 50px); */
+    width: 100%;
     /* max-width: 1200px; */
     height: 450px;
-    position: relative;
+    /* position: relative; */
     perspective: 1000px;
-    /* margin-top: 80px; */
     border: 1px solid rgb(171, 14, 219);
     overflow-x: hidden;
 }
