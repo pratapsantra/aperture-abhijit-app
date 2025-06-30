@@ -13,25 +13,26 @@ import './HappyClient.css';
 // const activities: Activity[] = [
 const activities = [
     {
-        title: 'Ice Catch',
+        title: 'Ice Catch1',
         description: "I recently connected with Abijit Photography for my pre-wedding shoot, and the experience was absolutely fantastic! The photographer did an incredible job and made the entire shoot truly memorable. I’ll definitely be reaching out to them again for my wedding photography. Highly recommended!",
         imageUrl: '/hc-1.jpg',
     },
     {
-        title: 'Mud Touching',
+        title: 'Mud Touching2',
         description: "I recently connected with Abijit Photography for my pre-wedding shoot, and the experience was absolutely fantastic! The photographer did an incredible job and made the entire shoot truly memorable. I’ll definitely be reaching out to them again for my wedding photography. Highly recommended!",
         imageUrl: '/hc-2.jpg',
     },
     {
-        title: 'BMX Football',
+        title: 'BMX Football3',
         description: "I recently connected with Abijit Photography for my pre-wedding shoot, and the experience was absolutely fantastic! The photographer did an incredible job and made the entire shoot truly memorable. I’ll definitely be reaching out to them again for my wedding photography. Highly recommended!",
         imageUrl: '/hc-3.jpg',
     },
     {
-        title: 'Shoe Tying',
+        title: 'Shoe Tying4',
         description: "I recently connected with Abijit Photography for my pre-wedding shoot, and the experience was absolutely fantastic! The photographer did an incredible job and made the entire shoot truly memorable. I’ll definitely be reaching out to them again for my wedding photography. Highly recommended!",
         imageUrl: '/hc-4.jpg',
-    },
+    }
+    
 ];
 
 // const OurRecentWorkCard: React.FC = () => {

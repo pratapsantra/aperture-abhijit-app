@@ -13,11 +13,11 @@ activities-widget {
   margin-top: 50px;
   container: activities-widget / inline-size;
 
-  inline-size: min(100%, 425px);
+  inline-size: min(100%, 900px);
   margin-inline: auto;
 
   display: grid;
-  grid-template-columns: 20fr 20fr;
+  grid-template-columns: 1fr 3fr;
   /* grid-template-rows: 1lh auto auto; */
   grid-template-rows: auto auto;
   gap: 0.5rem 2rem;
@@ -30,7 +30,6 @@ activities-widget {
     display: grid;
     grid-template-rows: subgrid;
     grid-template-columns: subgrid;
-
     align-items: center;
 
     grid-column: 1 / -1;
@@ -88,6 +87,7 @@ activities-widget {
       grid-column: 2 / 3;
       grid-row: 2 / 3;
       grid-area: auto;
+      /* border:1px solid red; */
 
       color: light-dark(rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.6));
       opacity: 0;
@@ -132,7 +132,9 @@ activities-widget {
       }
     }
 
-    @container activities-widget (width < 400px) {
+
+
+    @container activities-widget (width < 600px) {
       display: block;
       padding: 1rem;
 
@@ -163,21 +165,28 @@ activities-widget {
     }
   }
 
+
   .activities-navigation {
-    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.8rem;
+
+    grid-column: 1 / -1;
+    /* Optional: Span full width */
     grid-row: 3 / 4;
 
     user-select: none;
-    place-self: end;
     z-index: 99;
 
-
     >button {
-      border: 1px solid light-dark(black, white);
+      border: 1px solid light-dark(black, rgb(0, 0, 0));
       background: 0;
       border-radius: 50px;
       aspect-ratio: 1;
-      width: 25px;
+      /* width: 60px; */
+      font-size: 1rem;
 
       &:hover {
         background: CanvasText;
@@ -185,22 +194,15 @@ activities-widget {
       }
     }
 
-    @container activities-widget (width < 400px) {
-      display: none;
+    .activities-count {
+      font-size: 0.9rem;
+      color: light-dark(rgba(30, 30, 30, 0.6), rgba(0, 0, 0, 0.6));
+      text-align: center;
     }
   }
-
-  .activities-count {
-    /* grid-column: 2 / -1; */
-    place-self: start;
-    z-index: 99;
-    color: light-dark(rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.6), );
-
-    @container activities-widget (width < 400px) {
-      display: none;
-    }
-  }
+  
 }
+
 
 @keyframes straightenImages {
   50% {
@@ -218,7 +220,7 @@ activities-widget {
 
   100% {
     translate: 0 0;
-    z-index: 1;
+    z-index: 99;
   }
 }
 
@@ -226,4 +228,53 @@ activities-widget {
   .text {
     margin-top: 40px;
   }
+}
+
+@media (max-width: 900px) {
+  activities-widget .activity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+  }
+
+  activities-widget .img {
+    max-width: 250px;
+    margin-bottom: 1rem;
+  }
+
+}
+
+.happy-client-nav-arrow {
+    /* position: absolute; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    background: rgba(8, 42, 123, 0.6);
+    color: rgb(0, 0, 0);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    /* padding-bottom: 4px; */
+}
+
+
+
+.happy-client-nav-arrow.left {
+    left: 20px;
+    padding-right: 3px;
+}
+
+.happy-client-nav-arrow.right {
+    right: 20px;
+    padding-left: 3px;
 }

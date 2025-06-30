@@ -31,8 +31,8 @@ class ActivitiesWidget extends LitElement {
     _startAutoAdvance() {
         if (!this._autoAdvanceInterval) {
             this._autoAdvanceInterval = setInterval(() => {
-                this._moveNext();
-            }, 8000);
+                // this._moveNext();
+            }, 2000);
         }
     }
 
@@ -68,7 +68,6 @@ class ActivitiesWidget extends LitElement {
     }
 
     _moveNext(e) {
-        // console.log("eeeeeeee------", e)
         this.activeActivity++;
         if (this.activeActivity > this.count) {
             this.activeActivity = 1;
@@ -86,14 +85,18 @@ class ActivitiesWidget extends LitElement {
     // Inject additional stuff into DOM (stays Light DOM), and allow Lit-style reactivity and event handling.
     render() {
         return html`
-      <div class="activities-count">${this.activeActivity}/${this.count}</div>
-
-      <nav class="activities-navigation">
-        <button aria-label="previous" @click="${this._movePrevious}">⭠</button>
-        <button aria-label="next" @click="${this._moveNext}">⭢</button>
-      </nav>
+            <nav class="activities-navigation">
+                 <button class="happy-client-nav-arrow left" @click="${this._movePrevious}">‹</button>
+                 <button class="happy-client-nav-arrow right" @click="${this._moveNext}">›</button>
+                <div class="activities-count">${this.activeActivity}/${this.count}</div>
+            </nav>
     `;
     }
 }
 
 customElements.define("activities-widget", ActivitiesWidget);
+/* 
+<button aria-label="previous" @click="${this._movePrevious}">⭠</button>
+                <button aria-label="next" @click="${this._moveNext}">⭢</button>
+
+*/
