@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto  } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import "./globals.css";
 import './cover.carousel.css'
 import './globalCustome.css'

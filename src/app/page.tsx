@@ -5,6 +5,7 @@ import OurRecentWork from '../app/components/OurRecentWork'
 import HappyClient from '../app/components/HappyClient'
 import OurTeam from '../app/components/OurTeam'
 import NatureOfPhotography from '../app/components/NatureOfPhotography'
+import Footer from '../app/components/Footer'
 export default function Home() {
   return (
     <>
@@ -14,6 +15,7 @@ export default function Home() {
       <HappyClient />
       <OurTeam />
       <NatureOfPhotography />
+      <Footer />
     </>
   );
 }
