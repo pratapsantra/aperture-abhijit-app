@@ -31,8 +31,8 @@ class ActivitiesWidget extends LitElement {
     _startAutoAdvance() {
         if (!this._autoAdvanceInterval) {
             this._autoAdvanceInterval = setInterval(() => {
-                // this._moveNext();
-            }, 2000);
+                this._moveNext();
+            }, 6000);
         }
     }
 

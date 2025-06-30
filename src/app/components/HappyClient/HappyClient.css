@@ -186,7 +186,7 @@ activities-widget {
       border-radius: 50px;
       aspect-ratio: 1;
       /* width: 60px; */
-      font-size: 1rem;
+      /* font-size: 1rem; */
 
       &:hover {
         background: CanvasText;
@@ -250,7 +250,7 @@ activities-widget {
     /* position: absolute; */
     /* top: 50%; */
     /* transform: translateY(-50%); */
-    background: rgba(8, 42, 123, 0.6);
+    background: rgba(8, 42, 123, 0.6) !important;
     color: rgb(0, 0, 0);
     width: 30px;
     height: 30px;
@@ -264,7 +264,7 @@ activities-widget {
     font-size: 1.5rem;
     border: none;
     outline: none;
-    /* padding-bottom: 4px; */
+    padding-bottom: 2px;
 }
 
 
