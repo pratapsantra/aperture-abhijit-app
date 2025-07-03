@@ -7,6 +7,7 @@ import './cover.carousel.css'
 import './globalCustome.css'
 import React from 'react';
 import  Navbar  from '../app/navigationbar/page'
+import  Footer  from '../app/footer/page'
 
 
 const geistSans = Geist({
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${RobotoFont.variable}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

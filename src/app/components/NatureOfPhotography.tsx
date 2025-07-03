@@ -6,7 +6,7 @@ import NatureOfPhotography from './NatureOfPhotography/NatureOfPhotography'
 
 export default function OurServicesPage() {
   return (
-    <section className='section-container padding-null'>
+    <section className='section-container padding-null background-black'>
       <div className='inner-container'>
         <div className='heading-container'>
           <div className='heading-text-container'>

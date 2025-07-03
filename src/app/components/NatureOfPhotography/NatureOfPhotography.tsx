@@ -16,12 +16,12 @@ export default function NatureOfPhotography() {
     return (
 
         <section className="nature-of-photography">
-            <div className="container">
+            <div className="nature-of-photography-container">
                 <div className="row programs_wrraper">
                     <div className="col-md-4 col-sm-6">
                         <div className="programs_imgbox">
                             <Image
-                                src={'/pp1.jpg'}
+                                src={'/nop1.jpg'}
                                 alt={``}
                                 width={400}
                                 height={350}
@@ -30,15 +30,15 @@ export default function NatureOfPhotography() {
                             <div className="overlay">
                                 <div className="content_box">
                                     <div className="programs-content">
-                                        <h3><span>Abb</span><br></br>
-                                            Exercise</h3>
+                                        <h3><span>Steel View</span><br></br>
+                                            Photos</h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="programs_imgbox">
                             <Image
-                                src={'/p2.jpg'}
+                                src={'/nop-2.jpg'}
                                 alt={``}
                                 width={400}
                                 height={350}
@@ -47,8 +47,8 @@ export default function NatureOfPhotography() {
                             <div className="overlay">
                                 <div className="content_box">
                                     <div className="programs-content">
-                                        <h3><span>Abb</span><br></br>
-                                            Exercise</h3>
+                                        <h3><span>Steel View</span><br></br>
+                                            Photos</h3>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@ export default function NatureOfPhotography() {
                     <div className="col-md-4 col-sm-6">
                         <div className="programs_imgbox">
                             <Image
-                                src={'/pp3.jpg'}
+                                src={'/nop-3.jpg'}
                                 alt={``}
                                 width={400}
                                 height={725}
@@ -66,8 +66,8 @@ export default function NatureOfPhotography() {
                             <div className="overlay">
                                 <div className="content_box">
                                     <div className="programs-content">
-                                        <h3><span>Abb</span><br></br>
-                                            Exercise</h3>
+                                        <h3><span>Drone View</span><br></br>
+                                            Photos</h3>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@ export default function NatureOfPhotography() {
                         <div className="psingle-col plast_half">
                             <div className="programs_imgbox">
                                 <Image
-                                    src={'/p3.jpg'}
+                                    src={'/nop-4.jpg'}
                                     alt={``}
                                     width={400}
                                     height={350}
@@ -86,8 +86,8 @@ export default function NatureOfPhotography() {
                                 <div className="overlay">
                                     <div className="content_box">
                                         <div className="programs-content">
-                                            <h3><span>Abb</span><br></br>
-                                                Exercise</h3>
+                                            <h3><span>Steel View</span><br></br>
+                                                Photos</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -96,17 +96,24 @@ export default function NatureOfPhotography() {
                         <div className="psingle-col plast_half">
                             <div className="programs_imgbox">
                                 <Image
-                                    src={'/p4.jpg'}
+                                    src={'/nop-5.jpg'}
                                     alt={``}
                                     width={400}
                                     height={350}
                                     style={{ objectFit: 'cover' }}
                                 />
+                                {/* <video width="490" height="350" autoPlay muted preload="auto" loop className='video-container'>
+                                    <source
+                                        src={'/nop-video.mp4'}
+                                        type="video/mp4"
+                                    />
+                                </video> */}
+
                                 <div className="overlay">
                                     <div className="content_box">
                                         <div className="programs-content">
-                                            <h3><span>Abb</span><br></br>
-                                                Exercise</h3>
+                                            <h3><span>Steel View</span><br></br>
+                                                Photos</h3>
                                         </div>
                                     </div>
                                 </div>

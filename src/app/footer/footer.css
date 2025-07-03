@@ -1,0 +1,185 @@
+/*=======================gym_footer====================*/
+
+.page_footer {
+    position: relative;
+    background: #1F1F1F url(../../../public/footer-bg.jpg) top center no-repeat;
+    background-size: cover;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.page_footer:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.page_footer .page_footer_container {
+    position: relative;
+}
+
+.page_footer_container {
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+.page_footer h1 {
+    font-size: 300px;
+    color: #fff;
+}
+
+.page_footer .footer_logo img {
+    margin-bottom: 40px;
+}
+
+.page_footer p {
+    font-family: 'Sansation_Regular', sans-serif;
+    font-size: 18px;
+    margin-bottom: 26px;
+    color: #747474;
+}
+
+.page_footer .footer_social_logo ul {
+    list-style: none;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.page_footer .footer_social_logo ul li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 2px #fff solid;
+    border-radius: 50%;
+    vertical-align: middle;
+    line-height: 36px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.page_footer .footer_social_logo ul li i {
+    color: #fff;
+}
+
+.quick_Links {
+    position: relative;
+    padding-left: 60px;
+}
+
+.quick_Links h3,
+.latest_posts h3,
+.footer_contact h3 {
+    font-family: 'Paragon Medium', sans-serif;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.quick_Links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick_Links ul li a {
+    font-family: 'Sansation_Light', sans-serif;
+    font-size: 18px;
+    color: #747474;
+    line-height: 45px;
+    font-weight: normal;
+}
+
+.latest_posts .latest_posts_textbox ul {
+    padding-left: 10px;
+    list-style: none;
+}
+
+.latest_posts .latest_posts_textbox ul li {
+    font-size: 16px;
+    font-family: 'Sansation_Light', sans-serif;
+    color: #747474;
+    margin-bottom: 30px;
+    padding-left: 40px;
+    position: relative;
+    font-weight: normal;
+}
+
+.latest_posts_textbox span {
+    margin-right: 10px;
+}
+
+.latest_posts .latest_posts_textbox ul li span {
+    color: #1286c9;
+}
+
+.latest_posts .latest_posts_textbox ul li:before {
+    content: '';
+    width: 10px;
+    height: 3px;
+    left: 0;
+    top: 10px;
+    background: #fff;
+    display: block;
+    position: absolute;
+}
+
+.footer_contact {
+    position: relative;
+}
+
+.footer_contact .latest_posts_textbox ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.footer_contact .latest_posts_textbox ul li {
+    font-size: 14px;
+    font-family: 'Sansation_Light', sans-serif;
+    line-height: 40px;
+    color: #747474;
+    font-weight: normal;
+}
+
+.footer_contact .latest_posts_textbox ul li i {
+    font-size: 14px;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.sub_mail {
+    position: relative;
+    width: 270px;
+    height: 40px;
+    background-color: #2C2C2C;
+    border: 2px #3d3d3d solid;
+}
+
+.sub_mail .sub_mailid input {
+    line-height: 35px;
+    width: 230px;
+    color: #817f7f;
+    background-color: transparent;
+    border: none;
+    padding-left: 15px;
+    margin-right: 8px;
+}
+
+.sub_mail .sub_mailid i {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .quick_Links {
+        padding-left: 0px;
+        margin-top: 30px;
+    }
+
+}

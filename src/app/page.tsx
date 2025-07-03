@@ -13,9 +13,9 @@ export default function Home() {
       <OurServices/>
       <OurRecentWork />
       <HappyClient />
-      <OurTeam />
       <NatureOfPhotography />
-      <Footer />
+      <OurTeam />
+      {/* <Footer /> */}
     </>
   );
 }
