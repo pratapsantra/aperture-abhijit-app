@@ -7,8 +7,8 @@ import "./globals.css";
 import './cover.carousel.css'
 import './globalCustome.css'
 import React from 'react';
-import Navbar from './navigationbar/navigation'
-import Footer from './footer/footer'
+import Navbar from './components/navigationbar/navigation'
+import Footer from './components/footer/footer'
 import WhatsappInfo from "./components/WhatsappInfo/whatsappInfo";  
 
 

@@ -2,16 +2,15 @@
 import React from "react";
 import './footer.css'
 import Image from 'next/image';
-import companyLogo from '../assets/images/company-logo.jpg'
+import companyLogo from '../../../../public/company-logo.jpg';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookF} from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faYoutube, faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faLocationDot, faSquarePhone, faSquareEnvelope, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 export default function footer() {
-
     return (
         <>
             <section className='section-container padding-null background-black'>
@@ -21,13 +20,15 @@ export default function footer() {
                             <div className="row">
                                 <div className="col-md-3">
                                     <div className="footer_logo">
-                                        <Image
-                                            src={companyLogo}
-                                            alt={``}
-                                            width={60}
-                                            height={60}
-                                            style={{ objectFit: 'cover' }}
-                                        />
+                                        <a href="/">
+                                            <Image
+                                                src={companyLogo}
+                                                alt={``}
+                                                width={60}
+                                                height={60}
+                                                style={{ objectFit: 'cover' }}
+                                            />
+                                        </a>
                                         <p>From stolen glances to heartfelt vows, we preserve every chapter of your love story with elegance and emotion.</p>
                                         <div className="footer_social_logo">
                                             <ul>
@@ -44,7 +45,7 @@ export default function footer() {
                                         <h3>Quick Links</h3>
                                         <div className="quick_Links_textbox">
                                             <ul>
-                                                <li><a href="#">About us</a></li>
+                                                <li><a href="/aboutus">About us</a></li>
                                                 <li><a href="#">Service</a></li>
                                                 <li><a href="#">Gallery</a></li>
                                                 <li><a href="#">Client </a></li>

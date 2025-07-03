@@ -2,7 +2,7 @@
 
 .page_footer {
     position: relative;
-    background: #1F1F1F url(../../../public/footer-bg.jpg) top center no-repeat;
+    background: #1F1F1F url(../../../../public/footer-bg.jpg) top center no-repeat;
     background-size: cover;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -15,7 +15,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.85);
 }
 
 .page_footer .page_footer_container {

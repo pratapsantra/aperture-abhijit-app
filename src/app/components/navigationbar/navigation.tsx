@@ -2,7 +2,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import './navigation.css'
 import Image from 'next/image';
-import companyLogo from '../assets/images/company-logo.jpg'
+ import companyLogo from '../../../../public/company-logo.jpg';
+ import { useRouter, usePathname } from "next/navigation";
+ import Link from "next/link";
 
 // export const Navbar: React.FC = () => {
 export default function Navbar() {
@@ -13,6 +15,8 @@ export default function Navbar() {
     const moonIconRef = useRef<SVGSVGElement>(null);
     const sunIconRef = useRef<SVGSVGElement>(null);
     const [isDark, setIsDark] = useState(true);
+
+    const pathname = usePathname(); // Get the current pathname
 
     // Toggle nav menu
     useEffect(() => {
@@ -157,9 +161,10 @@ export default function Navbar() {
     return (
         <>
             <header className="header">
+                
                 <nav className="navbar" ref={navbarRef}>
                     <div className="nav-brand">
-                        <a href="#" className="logo">
+                        <a href="/" className="logo">
                             <Image
                                 src={companyLogo}
                                 alt="Description of my image"
@@ -180,7 +185,7 @@ export default function Navbar() {
                     <div className="nav-menu">
                         <ul className="nav-list">
                             <li className="nav-item">
-                                <a href="#" className="nav-link active">Home</a>
+                                <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
                             </li>
                             {/* <li className="nav-item has-dropdown">
                                 <a href="#" className="nav-link">
@@ -210,20 +215,21 @@ export default function Navbar() {
                                     <li><a href="#">Training</a></li>
                                 </ul>
                             </li> */}
+                            
                             <li className="nav-item">
-                                <a href="#" className="nav-link">About us</a>
+                                <Link href="/aboutus" className={`nav-link ${pathname === '/aboutus' ? 'active' : ''}`}>About us</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">Service</a>
+                                <Link href="/service" className={`nav-link ${pathname === '/service' ? 'active' : ''}`}>Service</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">Gallery</a>
+                                <Link href="/gallery" className={`nav-link ${pathname === '/gallery' ? 'active' : ''}`}>Gallery</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">Client</a>
+                                <Link href="/client" className={`nav-link ${pathname === '/client' ? 'active' : ''}`}>Client</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">Contact</a>
+                                <Link href="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
                             </li>
                         </ul>
 
