@@ -1,13 +1,15 @@
 
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto  } from "next/font/google";
+import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import "./globals.css";
 import './cover.carousel.css'
 import './globalCustome.css'
 import React from 'react';
-import  Navbar  from '../app/navigationbar/page'
-import  Footer  from '../app/footer/page'
+import Navbar from './navigationbar/navigation'
+import Footer from './footer/footer'
+import WhatsappInfo from "./components/WhatsappInfo/whatsappInfo";  
 
 
 const geistSans = Geist({
@@ -35,11 +37,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="en" >
       <body className={`${geistSans.variable} ${geistMono.variable} ${RobotoFont.variable}`}>
         <Navbar />
         {children}
+        <WhatsappInfo />
+
         <Footer />
       </body>
     </html>
