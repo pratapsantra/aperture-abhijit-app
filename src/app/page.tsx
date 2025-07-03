@@ -15,7 +15,7 @@ export default function Home() {
       <HappyClient />
       <OurTeam />
       <NatureOfPhotography />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
