@@ -11,26 +11,27 @@ body {
 }
 
 .main-carousel {
-  position: relative;
+  /* position: relative; */
   width: 100%;
   height: 100%;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-.item {
+.item-container {
   width: 200px;
   height: 300px;
   list-style-type: none;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 1;
   background-position: center;
   background-size: cover;
   border-radius: 20px;
   box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
-  transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
-
+  /* transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s; */
+  opacity: 0;
+  /* Start all items invisible */
+  transition: opacity 1s ease-in-out;
+  /* Smooth opacity transition */
 
   &:nth-child(1),
   &:nth-child(2) {
@@ -42,39 +43,84 @@ body {
     border-radius: 0;
     box-shadow: none;
     opacity: 1;
-    /* border:11px solid red; */
+
   }
 
   &:nth-child(3) {
-    left: 80%;
-    top: 70%;
+    right: 0px;
+    bottom: 0px;
+    border: 2px solid #000000;
+    /* display: none; */
+    opacity: 0;
+    z-index: -200;
   }
 
   &:nth-child(4) {
     left: calc(50% + 220px);
-    /* opacity: 0; */
     display: none;
   }
 
   &:nth-child(5) {
     left: calc(80% + 440px);
-    /* opacity: 0; */
     display: none;
   }
 
   &:nth-child(6) {
     left: calc(80% + 660px);
-    /* opacity: 0; */
     display: none;
   }
 }
 
-.content {
-  width: min(30vw, 400px);
+.item-container {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  /* animation: fadeIn 0.8s ease-in-out forwards; */
+}
+
+.item-container.visible {
+  /* opacity: 1; */
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.item-container.invisible {
+  opacity: 0;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.third-container {
+  width: 150px;
+  height: 200px;
+  border-radius: 20px;
   position: absolute;
-  top: 50%;
+  right: 50px;
+  bottom: 60px;
+  border: 2px solid #000000;
+  background-size: cover;
+  /* Ensure the image covers the div */
+  background-position: center;
+  display: block;
+  z-index: 100;
+  
+}
+
+.content-container {
+  width: min(50vw, 400px);
+  position: absolute;
+  bottom: 0;
   left: 0;
-  transform: translateY(-50%);
+  padding: 1rem;
+  /* transform: translateY(-50%); */
   font: 400 0.85rem helvetica, sans-serif;
   color: white;
   text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
@@ -82,28 +128,29 @@ body {
   display: none;
 
   & .title {
-    font-family: 'arial-black';
+    font-family: var(--font-roboto);
     text-transform: uppercase;
+
+    font-size: 2rem;
   }
 
   & .description {
+    font-family: var(--font-roboto);
     line-height: 1.7;
     margin: 0.5rem 0 0.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
-  /*  & button {
-    width: fit-content;
-    background-color: rgba(0,0,0,0.1);
-    color: white;
-    border: 2px solid white;
-    border-radius: 0.25rem;
-    padding: 0.75rem;
-    cursor: pointer;
-  } */
+
 }
 
-.item:nth-of-type(2) .content {
+.btn-icon {
+  padding: 8px;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.item-container:nth-of-type(2) .content-container {
   display: block;
   animation: show 0.75s ease-in-out 0.3s forwards;
 }
@@ -120,23 +167,23 @@ body {
   }
 }
 
-.nav {
+.main-carousel .nav-container {
+  width: 100%;
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 1rem;
   z-index: 5;
   user-select: none;
+  display: flex;
+  justify-content: center;
 
-  & .btn {
+  & .btn-icon {
     background-color: rgba(255, 255, 255, 0.5);
     color: rgba(0, 0, 0, 0.7);
     border: 2px solid rgba(0, 0, 0, 0.6);
     margin: 0 0.25rem;
-    padding: 0.75rem;
+    /* padding: 0.75rem; */
     border-radius: 50%;
     cursor: pointer;
-
     &:hover {
       background-color: rgba(255, 255, 255, 0.3);
     }
@@ -144,50 +191,22 @@ body {
 }
 
 @media (width > 650px) and (width < 900px) {
-  .content {
 
-    width: 70%;
-
-
-    & .title {
-      font-size: 1rem;
-    }
-
-    & .description {
-      font-size: 0.7rem;
-    }
-
-    /* & button        { font-size: 0.7rem; } */
-  }
 
   .main-carousel {
-    margin-top: 100px;
+    margin-top: 93px;
     position: relative;
   }
 
-  .item {
+  .item-container {
     width: 160px;
     height: 170px;
+  }
 
-    &:nth-child(3) {
-      left: 70%;
-      border: 4px solid red;
-    }
-
-    &:nth-child(4) {
-      left: calc(50% + 170px);
-      display: none;
-    }
-
-    &:nth-child(5) {
-      left: calc(50% + 340px);
-      display: none;
-    }
-
-    &:nth-child(6) {
-      left: calc(50% + 510px);
-      display: none;
-    }
+  .main-carousel .nav-container {
+    justify-content: flex-end;
+    /* border: 2px solid rgb(9, 255, 0); */
+    padding-right: 40px;
   }
 }
 
@@ -196,136 +215,83 @@ body {
     height: 300px;
     object-fit: contain;
     display: block;
+
   }
 
   .main-carousel {
-    margin-top: 100px;
+    margin-top: 93px;
     position: relative;
+  }
+}
 
+@media (width > 625px) and (width < 981px) {
+  .main-carousel {
+    margin-top: 93px;
+    position: relative;
+  }
+}
+
+
+
+
+.main-carousel img,
+.main-carousel svg {
+  vertical-align: baseline;
+}
+
+@media (width < 981px) {
+  .main-carousel .nav-container {
+    justify-content: flex-end;
+    padding-right: 37px;
   }
 
-  .content {
-    /* border: 1px solid red; */
-    width: 70%;
+  .item-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 100px;
 
+    &:nth-child(3) {
+      right: 50px;
+      bottom: 80px;
+      border: 2px solid #000000;
+      /* display: none; */
+      opacity: 0;
+      z-index: -200;
+    }
+  }
+  .third-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 100px;
+    position: absolute;
+    right: 50px;
+    bottom: 60px;
+    border: 2px solid #000000;
+    background-size: cover;
+    /* Ensure the image covers the div */
+    background-position: center;
+    display: block;
+    z-index: 100;
+  }
+}
+
+@media (width < 425px) {
+  .content-container {
     & .title {
       font-size: 1.2rem;
     }
 
     & .description {
-      font-size: 0.8rem;
+      line-height: 1.2;
+      font-size: .8rem;
     }
-
-    /* & button        { font-size: 0.7rem; } */
-  }
-
-  .item {
-    width: 60px;
-    height: 60px;
-    border-radius: 100px;
-
-    &:nth-child(3) {
-      left: 78%;
-      border: 2px solid #000;
-    }
-
-    &:nth-child(4) {
-      left: calc(50% + 140px);
-      display: none;
-    }
-
-    &:nth-child(5) {
-      left: calc(50% + 280px);
-      display: none;
-    }
-
-    &:nth-child(6) {
-      left: calc(50% + 420px);
-      display: none;
-    }
-  }
-
-  .nav {
-    position: absolute;
-    bottom: 1rem;
-    right: 0;
-    transform: translateX(-5%);
-    z-index: 5;
-    user-select: none;
-    display: flex;
-    justify-content: flex-end;
   }
 }
 
-@media (width > 625px) and (width < 981px) {
+@media (width > 625px) and (width < 991px) {
   body {
-    height: 700px;
+    height: 600px;
     object-fit: contain;
     display: block;
-  }
-
-  .main-carousel {
-    margin-top: 100px;
-    position: relative;
-  }
-
-  .content {
-    /* border: 1px solid red; */
-    width: 70%;
-
-    & .title {
-      font-size: 3.2rem;
-    }
-
-    & .description {
-      font-size: 1.8rem;
-    }
-
-    /* & button        { font-size: 0.7rem; } */
-  }
-
-  .item {
-    width: 160px;
-    height: 160px;
-    border-radius: 100px;
-
-    &:nth-child(3) {
-      left: 78%;
-      top: 530px;
-      border: 2px solid #000000;
-    }
-
-    &:nth-child(4) {
-      left: calc(50% + 140px);
-      display: none;
-    }
-
-    &:nth-child(5) {
-      left: calc(50% + 280px);
-      display: none;
-    }
-
-    &:nth-child(6) {
-      left: calc(50% + 420px);
-      display: none;
-    }
-  }
-
-  .nav {
-    position: absolute;
-    bottom: 1rem;
-    right: 3.6rem;
-    transform: translateX(-1%);
-    z-index: 5;
-    user-select: none;
-
-    align-self: flex-end;
-    display: flex;
-    justify-content: flex-end;
-
-    & .btn {
-      width: 40px !important;
-      height: 40px !important;
-    }
   }
 }
