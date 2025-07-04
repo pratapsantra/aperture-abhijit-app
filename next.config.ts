@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
         port: '', // Leave empty unless a specific port is required
         pathname: '**', // Be as specific as possible to prevent abuse
       },
+      {
+        protocol: 'https',
+        hostname: 'visittheusa.com',
+        port: '',
+        pathname: '**',
+      }
     ],
   },
   eslint: {

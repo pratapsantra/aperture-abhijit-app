@@ -1,0 +1,203 @@
+
+.inside-carousel-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    /* min-height: 100vh; */
+    width: 100%;
+    /* max-width: 900px; */
+    margin: 0 auto;
+    border: 1px solid red;
+    position: relative;
+    top: 93px;
+}
+
+.c-header {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    /* background-color: #90a6aa; */
+}
+
+.u-a5 {
+    font-family: Arial;
+    font-size: 30px;
+    /* line-height: 35px; */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.u-b4 {
+    font-family: Arial;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.3px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* //MEDIA WRAPPER */
+.u-media-wrapper {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 0;
+
+    /* &#{&}--16-9 {
+		padding-bottom: percentage(9/16);
+	} */
+    &--16-9 {
+        padding-bottom: percentage(9/16);
+    }
+}
+
+.u-media-wrapper--16-9 {
+    padding-bottom: percentage(9 / 16);
+}
+
+/* // GRADIENT IMAGE OVERLAY */
+.c-gradient-overlay {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 49% 50%,
+            rgba(2, 21, 25, 0.3),
+            rgba(2, 21, 25, 0.6));
+}
+
+.c-mouse-vertical-carousel {
+    /* height:300px; */
+    position: relative;
+    /* overflow: hidden; */
+
+    &__list {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        z-index: 1;
+        border: 1px solid red;
+    }
+
+    &__list-item {
+        a {
+            display: block;
+            padding-bottom: 25px;
+            padding-top: 25px;
+            padding-left: percentage(13/24);
+            border: 1px solid rgb(10, 82, 218);
+        }
+    }
+
+    &__eyebrow {
+        position: relative;
+        padding-bottom: 12px;
+        border: 11px solid rgb(201, 13, 218);
+
+        span {
+            position: absolute;
+            left: -30px;
+            top: 2px;
+        }
+    }
+
+    &__title {
+        max-width: 450px;
+        border: 4px solid rgb(170, 47, 133);
+    }
+
+    &__bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 500px;
+        background-size: cover;
+        background-position: center;
+        will-change: transform;
+        border: 7px solid rgb(12, 203, 209);
+        display: block;
+        overflow: auto;
+    }
+}
+
+.c-mouse-vertical-carousel__list {
+    /* width: 100%; */
+    position: absolute;
+    right: 100px;
+    top: 0;
+    z-index: 1;
+    height: 500px;
+    overflow: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.c-mouse-vertical-carousel__list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.c-mouse-vertical-carousel__list-item {
+    a {
+        display: block;
+        /* padding-bottom: 15px; */
+        padding-top : 15px;
+        padding-bottom : 15px;
+        padding-left: percentage(13/24);
+        /* border:1px solid red; */
+    }
+}
+
+.c-mouse-vertical-carousel__list p {
+    margin-bottom: 0px;
+}
+
+.c-mouse-vertical-carousel__list li {
+    list-style: none;
+}
+
+.c-mouse-vertical-carousel__eyebrow {
+    position: relative;
+    /* padding-bottom: 12px; */
+
+
+    span {
+        position: absolute;
+        left: -30px;
+        top: 2px;
+    }
+}
+
+
+.c-mouse-vertical-carousel__title {
+    max-width: 500px;
+}
+
+
+.c-mouse-vertical-carousel__bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    display: block;
+    overflow: auto;
+
+}

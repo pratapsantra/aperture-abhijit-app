@@ -46,7 +46,7 @@ export default function RootLayout({
         {children}
         <WhatsappInfo />
 
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 'use client';
-import Carousel from './Carousel/page'
+import Carousel from './Carousel/coverCarousel'
 import OurServices from '../app/components/OurServices'
 import OurRecentWork from '../app/components/OurRecentWork'
 import HappyClient from '../app/components/HappyClient'

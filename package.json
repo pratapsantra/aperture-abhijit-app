@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@reacticons/ionicons": "^7.1.0",
     "bootstrap": "^5.3.7",
+    "gsap": "^3.13.0",
     "ionicons": "^8.0.9",
     "lit": "^3.3.0",
     "next": "15.3.4",

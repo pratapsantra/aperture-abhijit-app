@@ -18,6 +18,15 @@ export default function whatsappInfo() {
                 height={50}
                 style={{ objectFit: 'contain' }}
             />
+            <a 
+                href="https://www.flaticon.com/free-icons/whatsapp" 
+                title="Whatsapp icons"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="whatsapp-icon-attribution"
+            >
+                Whatsapp icons created by riajulislam - Flaticon
+            </a>
         </div>
 
     );
