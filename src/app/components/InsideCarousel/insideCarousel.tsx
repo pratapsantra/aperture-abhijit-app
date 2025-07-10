@@ -3,11 +3,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import './insideCarousel.css';
 import gsap from 'gsap'; // Import GSAP
 
+
+
 // Type declaration for the VerticalMouseDrivenCarousel class
 class VerticalMouseDrivenCarousel {
     posY: number;
     listItems: number;
     defaults: { [key: string]: string };
+    bgImgIndex: number;
+    autoChangeInterval: number | undefined;
 
     constructor(options = {}) {
         const _defaults = {
@@ -20,9 +24,14 @@ class VerticalMouseDrivenCarousel {
         this.posY = 0;
         this.defaults = { ..._defaults, ...options };
 
+        // Initialize to middle item
+        // this.bgImgIndex = Math.floor(this.getListItems().length / 2);
+        this.bgImgIndex = 0;
+
         this.initCursor();
         this.init();
         this.bgImgController();
+        this.startAutoChange();
     }
 
     // region getters
@@ -43,77 +52,167 @@ class VerticalMouseDrivenCarousel {
     }
 
     init() {
-        gsap.set(this.getBgImgs(), {
-            autoAlpha: 0,
-            scale: 1.05
+        const listHeight = (this.getList() as HTMLElement).clientHeight;
+        const carouselHeight = (this.getCarousel() as HTMLElement).clientHeight;
+        const offset = (-carouselHeight / 2 + this.getListItems()[this.bgImgIndex].clientHeight / 2);
+
+
+        gsap.set(this.getList(), {
+            y: offset
         });
-        gsap.set(this.getBgImgs()[0], {
-            autoAlpha: 1,
-            scale: 1
+
+        const bgImgs = this.getBgImgs();
+
+        gsap.set(bgImgs, {
+            autoAlpha: 0,
+            // scale: 1.05
         });
 
         this.listItems = this.getListItems().length - 1;
 
-        this.listOpacityController(0);
+        // Set middle image visible
+        gsap.set(bgImgs[this.bgImgIndex], {
+            autoAlpha: 1,
+            // scale: 1
+        });
+        bgImgs[this.bgImgIndex].classList.add("is-visible");
+
+        // Set active class to middle item
+        this.getListItems()[this.bgImgIndex].classList.add("active");
+
+        // Set opacity of neighbors
+        this.listOpacityController(this.bgImgIndex);
+
+
     }
 
     initCursor() {
-        // Ensure these elements are properly typed as HTMLElement
         const listHeight = (this.getList() as HTMLElement).clientHeight;
         const carouselHeight = (this.getCarousel() as HTMLElement).clientHeight;
-
 
         this.getCarousel()!.addEventListener(
             "mousemove",
             (event: MouseEvent) => {
-                // Use `pageY` from MouseEvent
                 this.posY = event.pageY - (this.getCarousel() as HTMLElement).offsetTop;
-
                 let offset = (-this.posY / carouselHeight) * listHeight;
+                offset = Math.min(0, offset); // prevent going above the top
 
-
-                // Perform the animation using GSAP
                 gsap.to(this.getList(), 0.3, {
                     y: offset,
                     ease: "power4.out",
-                    duration: 0.6 // Smoother transition for carousel movement
+                    duration: 0.6
                 });
             },
             false
         );
     }
 
-    bgImgController() {
-
+    /* bgImgController() {
         for (const link of this.getListItems()) {
             link.addEventListener("mouseenter", ev => {
+                this.stopAutoChange();
+                console.log("mouseenter----------------", ev)
                 const currentId = (ev.currentTarget as HTMLElement).dataset.itemId;
-                this.listOpacityController(currentId);
+                const index = parseInt(currentId as string);
+                this.listOpacityController(index);
 
                 gsap.to(ev.currentTarget, 0.3, {
                     autoAlpha: 1,
-                    ease: "power3.out", // Smooth fade-in on hover
-                     duration: 1, // Smooth transition for opacity and position
-                     scale: 1.05 // Slight scale-up for the hovered item
+                    ease: "power3.out",
+                    duration: 1,
+                    // scale: 1.05
                 });
 
                 gsap.to(".is-visible", 0.2, {
                     autoAlpha: 0,
-                    scale: 1.05,
-                    ease: "power2.in", // Smoother fade-out for other images
+                    // scale: 1.05,
+                    ease: "power2.in",
                     duration: 1,
                 });
 
-                if (!this.getBgImgs()[parseInt(currentId as string)].classList.contains("is-visible")) {
-                    this.getBgImgs()[parseInt(currentId as string)].classList.add("is-visible");
+                const bgImgs = this.getBgImgs();
+
+                if (!bgImgs[index].classList.contains("is-visible")) {
+                    bgImgs[index].classList.add("is-visible");
                 }
 
-                gsap.to(this.getBgImgs()[parseInt(currentId as string)], 0.6, {
+                gsap.to(bgImgs[index], 0.6, {
                     autoAlpha: 1,
                     scale: 1,
                     ease: "power4.out",
                     duration: 1
                 });
+
+                // Update active state
+                this.getListItems().forEach(item => item.classList.remove("active"));
+                (ev.currentTarget as HTMLElement).classList.add("active");
+                this.bgImgIndex = index;
+                this.scrollToActiveItem(this.bgImgIndex);
+            });
+
+            link.addEventListener("mouseleave", () => {
+                this.startAutoChange();
+            });
+        }
+    } */
+
+    bgImgController() {
+        for (const link of this.getListItems()) {
+            const handleInteraction = (ev: Event) => {
+                this.stopAutoChange();
+
+                const currentId = (ev.currentTarget as HTMLElement).dataset.itemId;
+                const index = parseInt(currentId as string);
+
+                this.listOpacityController(index);
+
+                gsap.to(ev.currentTarget, {
+                    autoAlpha: 1,
+                    ease: "power3.out",
+                    duration: 1,
+                });
+
+                gsap.to(".is-visible", {
+                    autoAlpha: 0,
+                    ease: "power2.in",
+                    duration: 1,
+                });
+
+                const bgImgs = this.getBgImgs();
+
+                if (!bgImgs[index].classList.contains("is-visible")) {
+                    bgImgs[index].classList.add("is-visible");
+                }
+
+                gsap.to(bgImgs[index], {
+                    autoAlpha: 1,
+                    scale: 1,
+                    ease: "power4.out",
+                    duration: 1
+                });
+
+                this.getListItems().forEach(item => item.classList.remove("active"));
+                (ev.currentTarget as HTMLElement).classList.add("active");
+                this.bgImgIndex = index;
+                this.scrollToActiveItem(this.bgImgIndex);
+            };
+
+            // Desktop
+            link.addEventListener("mouseenter", handleInteraction);
+            link.addEventListener("mouseleave", () => {
+                this.startAutoChange();
+            });
+
+            // Mobile
+            link.addEventListener("touchstart", handleInteraction);
+            link.addEventListener("touchend", () => {
+                this.startAutoChange();
+            });
+
+            // Optional: allow click for better accessibility
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                handleInteraction(e);
             });
         }
     }
@@ -123,46 +222,123 @@ class VerticalMouseDrivenCarousel {
         const aboveCurrent = this.listItems - id;
         const belowCurrent = id;
 
+        const items = this.getListItems();
+
+        // Reset all first
+        items.forEach((item) => {
+            gsap.to(item, {
+                autoAlpha: 1,
+                x: 0,
+                ease: "power3.out",
+                duration: 0.3
+            });
+        });
+
+        // For items after the current one
         if (aboveCurrent > 0) {
             for (let i = 1; i <= aboveCurrent; i++) {
                 const opacity = 0.5 / i;
                 const offset = 5 * i;
-                gsap.to(this.getListItems()[id + i], 0.5, {
-                    autoAlpha: opacity,
-                    x: offset,
-                    ease: "power3.out",
-                    duration: 0.4 // Smooth transition for opacity and position
-                });
+                if (items[id + i]) {
+                    gsap.to(items[id + i], {
+                        autoAlpha: opacity,
+                        x: offset,
+                        ease: "power3.out",
+                        duration: 0.4
+                    });
+                }
             }
         }
 
+        // For items before the current one
         if (belowCurrent > 0) {
-            for (let i = 0; i <= belowCurrent; i++) {
+            for (let i = 1; i <= belowCurrent; i++) {
                 const opacity = 0.5 / i;
                 const offset = 5 * i;
-                gsap.to(this.getListItems()[id - i], 0.5, {
-                    autoAlpha: opacity,
-                    x: offset,
-                    ease: "power3.out",
-                    duration: 0.4 // Smooth transition for opacity and position
-                });
+                if (items[id - i]) {
+                    gsap.to(items[id - i], {
+                        autoAlpha: opacity,
+                        x: offset,
+                        ease: "power3.out",
+                        duration: 0.4
+                    });
+                }
             }
         }
     }
-    
+
+    scrollToActiveItem(index: number) {
+        const list = this.getList() as HTMLElement;
+        const listItems = this.getListItems();
+        const activeItem = listItems[index] as HTMLElement;
+        const carousel = this.getCarousel() as HTMLElement;
+
+        if (!list || !activeItem || !carousel) return;
+
+        const listRect = list.getBoundingClientRect();
+        const itemRect = activeItem.getBoundingClientRect();
+        const offset = itemRect.top - listRect.top;
+
+        const currentScroll = list.scrollTop;
+        const targetScroll = currentScroll + offset - carousel.clientHeight / 2 + activeItem.clientHeight / 2;
+
+        gsap.to(list, {
+            scrollTop: targetScroll - 50,
+            duration: 0.6,
+            ease: "power3.out"
+        });
+    }
+
+    startAutoChange() {
+        // setInterval(() => {
+        this.autoChangeInterval = window.setInterval(() => {
+            const bgImgs = this.getBgImgs();
+            const listItems = this.getListItems();
+
+            // Fade out current image
+            gsap.to(bgImgs[this.bgImgIndex], 1, {
+                autoAlpha: 0,
+                // scale: 1.05,
+                ease: "power4.in"
+            });
+            bgImgs[this.bgImgIndex].classList.remove("is-visible");
+            listItems[this.bgImgIndex].classList.remove("active");
+
+            // Update index
+            this.bgImgIndex = (this.bgImgIndex + 1) % bgImgs.length;
+
+            // Activate new item
+            bgImgs[this.bgImgIndex].classList.add("is-visible");
+            listItems[this.bgImgIndex].classList.add("active");
+            this.scrollToActiveItem(this.bgImgIndex);
+
+            gsap.to(bgImgs[this.bgImgIndex], 1, {
+                autoAlpha: 1,
+                scale: 1,
+                ease: "power4.in"
+            });
+
+            // Update opacity of list
+            this.listOpacityController(this.bgImgIndex);
+        }, 4000);
+    }
+
+    stopAutoChange() {
+        if (this.autoChangeInterval !== undefined) {
+            clearInterval(this.autoChangeInterval);
+            this.autoChangeInterval = undefined;
+        }
+    }
+}
+
+interface CarouselProps {
+    data: any[]; // ideally, replace `any` with the correct type of each carousel item
 }
 
 // export default function InsideCarousel() {
-const InsideCarousel: React.FC = () => {
-    const carouselItems = [
-        { id: 0, state: "Nevada", city: "Carson City", imageUrl: "./c1.jpg" },
-        /* { id: 1, state: "New Hampshire", city: "Concord", imageUrl: "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-01/Getty_104106362_Brand_State_NewHampshire_Web72DPI.jpg?itok=-D2AFnPq" },
-        { id: 2, state: "New York", city: "Albany", imageUrl: "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-01/Getty_104106362_Brand_State_NewHampshire_Web72DPI.jpg?itok=-D2AFnPq" },
-        { id: 3, state: "Oklahoma", city: "Oklahoma City", imageUrl: "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-01/Getty_104106362_Brand_State_NewHampshire_Web72DPI.jpg?itok=-D2AFnPq" },
-        { id: 4, state: "North Carolina", city: "Raleigh", imageUrl: "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-01/Getty_104106362_Brand_State_NewHampshire_Web72DPI.jpg?itok=-D2AFnPq" },
-        { id: 5, state: "Utah", city: "Salt Lake City", imageUrl: "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-01/Getty_104106362_Brand_State_NewHampshire_Web72DPI.jpg?itok=-D2AFnPq" },
-        { id: 6, state: "Missouri", city: "Jefferson City", imageUrl: "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-01/Getty_104106362_Brand_State_NewHampshire_Web72DPI.jpg?itok=-D2AFnPq" } */
-    ];
+const InsideCarousel: React.FC<CarouselProps> = ({ data }) => {
+
+    const [carouselData, setCarouselData] = useState(data);
 
     useEffect(() => {
 
@@ -175,119 +351,38 @@ const InsideCarousel: React.FC = () => {
 
     return (
         <div className="inside-carousel-container">
-            <header className="c-header c-header--archive c-header--project-list">
+            <div className="c-header c-header--archive c-header--project-list">
                 <div className="c-mouse-vertical-carousel js-carousel u-media-wrapper u-media-wrapper--16-9">
                     <ul className="c-mouse-vertical-carousel__list js-carousel-list">
-                        <li className="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id="0">
-                            <a href="">
-                                <p className="c-mouse-vertical-carousel__eyebrow u-b4">
-                                    <span>
-                                        01
-                                    </span> Nevada
-                                </p>
+                        {
+                            carouselData.map((item, index) => (
+                                <li className="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id={index} key={item.id}>
+                                    <a href="">
+                                        <p className="c-mouse-vertical-carousel__eyebrow u-b4">
+                                            <span>
+                                                {item.listNumber}
+                                            </span> {item.listHeading}
+                                        </p>
 
-                                <p className="c-mouse-vertical-carousel__title u-a5">
-                                    Carson City
-                                </p>
-                            </a>
-                        </li>
-
-                        <li className="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id="1">
-                            <a href="">
-                                <p className="c-mouse-vertical-carousel__eyebrow u-b4">
-                                    <span>
-                                        02
-                                    </span> New Hampshire
-                                </p>
-
-                                <p className="c-mouse-vertical-carousel__title u-a5">
-                                    Concord
-                                </p>
-                            </a>
-                        </li>
-
-                        <li className="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id="2">
-                            <a href="">
-                                <p className="c-mouse-vertical-carousel__eyebrow u-b4">
-                                    <span>
-                                        03
-                                    </span> New York
-                                </p>
-
-                                <p className="c-mouse-vertical-carousel__title u-a5">
-                                    Albany
-                                </p>
-                            </a>
-                        </li>
-
-                        <li className="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id="3">
-                            <a href="">
-                                <p className="c-mouse-vertical-carousel__eyebrow u-b4">
-                                    <span>
-                                        04
-                                    </span> Oklahoma
-                                </p>
-
-                                <p className="c-mouse-vertical-carousel__title u-a5">
-                                    Oklahoma City
-                                </p>
-                            </a>
-                        </li>
-
-                        <li className="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id="4">
-                            <a href="">
-                                <p className="c-mouse-vertical-carousel__eyebrow u-b4">
-                                    <span>
-                                        05
-                                    </span> North Carolina
-                                </p>
-
-                                <p className="c-mouse-vertical-carousel__title u-a5">
-                                    Raleigh
-                                </p>
-                            </a>
-                        </li>
-
-                        <li className="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id="5">
-                            <a href="">
-                                <p className="c-mouse-vertical-carousel__eyebrow u-b4">
-                                    <span>
-                                        06
-                                    </span> Utah
-                                </p>
-
-                                <p className="c-mouse-vertical-carousel__title u-a5">
-                                    Salt Lake City
-                                </p>
-                            </a>
-                        </li>
-
-                        <li className="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id="6">
-                            <a href="">
-                                <p className="c-mouse-vertical-carousel__eyebrow u-b4">
-                                    <span>
-                                        07
-                                    </span> Missouri
-                                </p>
-
-                                <p className="c-mouse-vertical-carousel__title u-a5">
-                                    Jefferson City
-                                </p>
-                            </a>
-                        </li>
+                                        <p className="c-mouse-vertical-carousel__title u-a5">
+                                            {item.title}
+                                        </p>
+                                    </a>
+                                </li>
+                            ))
+                        }
                     </ul>
 
-                    <i className="c-mouse-vertical-carousel__bg-img js-carousel-bg-img" style={{ backgroundImage: `url('/c1.jpg')` }}></i>
-                    <i className="c-mouse-vertical-carousel__bg-img js-carousel-bg-img" style={{ backgroundImage: `url('/c2.jpg')` }}></i>
-                    <i className="c-mouse-vertical-carousel__bg-img js-carousel-bg-img" style={{ backgroundImage: `url('/c3.jpg')` }}></i>
-                    <i className="c-mouse-vertical-carousel__bg-img js-carousel-bg-img" style={{ backgroundImage: `url('/c4.jpg')` }}></i>
-                    <i className="c-mouse-vertical-carousel__bg-img js-carousel-bg-img" style={{ backgroundImage: `url('/c5.jpg')` }}></i>
-                    <i className="c-mouse-vertical-carousel__bg-img js-carousel-bg-img" style={{ backgroundImage: `url('/c6.jpg')` }}></i>
-                    <i className="c-mouse-vertical-carousel__bg-img js-carousel-bg-img" style={{ backgroundImage: `url('/c1.jpg')` }}></i>
-                    <i className="c-gradient-overlay"></i>
-                </div>
-            </header>
-        </div>
+                    {
+                        carouselData.map((item, index) => (
+                            <div className="c-mouse-vertical-carousel__bg-img js-carousel-bg-img" style={{ backgroundImage: `url(${item.imageUrl})` }} key={item.id}></div>
+                        ))
+
+                    }
+                    <div className="c-gradient-overlay"></div>
+                </div >
+            </div >
+        </div >
     );
 };
 

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/c1.jpg",
+    "listNumber": "01",
+    "listHeading": "Nevada",
+    "title": "Carson City"
+  },
+  {
+    "id": 2,
+    "imageUrl": "/c2.jpg",
+    "listNumber": "02",
+    "listHeading": "New Hampshire",
+    "title": "Concord"
+  },
+  {
+    "id": 3,
+    "imageUrl": "/c3.jpg",
+    "listNumber": "03",
+    "listHeading": "New York",
+    "title": "Albany"
+  },
+  {
+    "id": 4,
+    "imageUrl": "/c4.jpg",
+    "listNumber": "04",
+    "listHeading": "Oklahoma",
+    "title": "Oklahoma City"
+  },
+  {
+    "id": 5,
+    "imageUrl": "/c5.jpg",
+    "listNumber": "05",
+    "listHeading": "North Carolina",
+    "title": "Raleigh"
+  },
+  {
+    "id": 6,
+    "imageUrl": "/c6.jpg",
+    "listNumber": "06",
+    "listHeading": "Utah",
+    "title": "Salt Lake City"
+  }
+]
