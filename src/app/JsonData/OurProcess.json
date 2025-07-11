@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/op-1.jpg",
+    "heading": "Consultation",
+    "description": "We begin with a one-on-one meeting to understand your vision, style preferences, and key moments you want captured.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "imageUrl": "/op-2.jpg",
+    "heading": "Planning & Preparation",
+    "description": "Our team scouts locations, crafts a shot list, and ensures every technical detail is seamless.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "imageUrl": "/op-3.jpg",
+    "heading": "The Shoot",
+    "description": "We blend into the background, capturing authentic expressions and spontaneous interactions.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "imageUrl": "/op-4.jpg",
+    "heading": "Editing & Delivery",
+    "description": "Each image is carefully curated, color-graded, and retouched. Final galleries and highlight reels are delivered through a secure online portal.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "imageUrl": "/op-5.jpg",
+    "heading": "Editing & Delivery",
+    "description": "Each image is carefully curated, color-graded, and retouched. Final galleries and highlight reels are delivered through a secure online portal.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "imageUrl": "/op-1.jpg",
+    "heading": "Consultation",
+    "description": "We begin with a one-on-one meeting to understand your vision, style preferences, and key moments you want captured.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "imageUrl": "/op-2.jpg",
+    "heading": "Planning & Preparation",
+    "description": "Our team scouts locations, crafts a shot list, and ensures every technical detail is seamless.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "imageUrl": "/op-3.jpg",
+    "heading": "The Shoot",
+    "description": "We blend into the background, capturing authentic expressions and spontaneous interactions.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "imageUrl": "/op-4.jpg",
+    "heading": "Editing & Delivery",
+    "description": "Each image is carefully curated, color-graded, and retouched. Final galleries and highlight reels are delivered through a secure online portal.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "imageUrl": "/op-5.jpg",
+    "heading": "Editing & Delivery",
+    "description": "Each image is carefully curated, color-graded, and retouched. Final galleries and highlight reels are delivered through a secure online portal.",
+    "data": [
+      {
+        "Climber": "Carlos Rubio",
+        "Photo": "Josetxu L&oacute;pez",
+        "Route": "To&ntilde;in (7b)",
+        "Sector": "El Rocodromo",
+        "Zone": "La Pedriza"
+      }
+    ]
+  }
+]

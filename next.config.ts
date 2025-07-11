@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
         hostname: 'visittheusa.com',
         port: '',
         pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.josetxu.com',
+        port: '',
+        pathname: '**',
       }
     ],
   },

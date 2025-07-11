@@ -14,7 +14,7 @@
     display: block;
     width: 100%;
     height: 500px;
-    background-color: #aa90a1;
+    background-color: #ffffff;
 }
 
 .u-a5 {
@@ -81,12 +81,15 @@ a {
     z-index: 1;
     height: 350px;
     overflow: scroll;
-    scrollbar-width: none;     /* Firefox */
-    -ms-overflow-style: none;     /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
 }
 
 .c-mouse-vertical-carousel__list::-webkit-scrollbar {
-    display: none;     /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 .c-mouse-vertical-carousel__list-item {
@@ -164,23 +167,22 @@ a {
     opacity: 0 !important;
 }
 
-@media (width > 625px) and (width < 981px) {
-
-}
+@media (width > 625px) and (width < 981px) {}
 
 @media (width < 981px) {
     .c-mouse-vertical-carousel__bg-img {
         margin-top: 93px;
         height: 500px;
+        /* border: 11px solid rgb(174, 235, 9); */
     }
 
     .c-header {
-        height: 500px;
+        height: 580px;
     }
 
     .c-mouse-vertical-carousel__list {
         right: 10px;
-        top: 350px;
+        top: 420px;
         height: 85px;
         /* border: 1px solid rgb(174, 235, 9); */
     }
@@ -197,11 +199,12 @@ a {
     }
 
     .c-header {
-        height: 400px;
+        height: 495px;
+        /* border: 1px solid red; */
     }
 
     .c-mouse-vertical-carousel__list {
-        top: 290px;
+        top: 380px;
         height: 65px;
     }
 
@@ -222,6 +225,4 @@ a {
     }
 }
 
-@media (width < 425px) {
-    
-}
+@media (width < 425px) {}

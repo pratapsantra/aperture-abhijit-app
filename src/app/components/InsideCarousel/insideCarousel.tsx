@@ -31,7 +31,7 @@ class VerticalMouseDrivenCarousel {
         this.initCursor();
         this.init();
         this.bgImgController();
-        this.startAutoChange();
+        // this.startAutoChange();
     }
 
     // region getters
@@ -200,13 +200,13 @@ class VerticalMouseDrivenCarousel {
             // Desktop
             link.addEventListener("mouseenter", handleInteraction);
             link.addEventListener("mouseleave", () => {
-                this.startAutoChange();
+                // this.startAutoChange();
             });
 
             // Mobile
             link.addEventListener("touchstart", handleInteraction);
             link.addEventListener("touchend", () => {
-                this.startAutoChange();
+                // this.startAutoChange();
             });
 
             // Optional: allow click for better accessibility

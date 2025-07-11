@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Wedding photography",
+    "description": "(candid, traditional, destination)",
+    "imageUrl": "/os-1.png"
+  },
+  {
+    "id": 2,
+    "title": "Portrait sessions",
+    "description": "(family, maternity, newborn, headshots)",
+    "imageUrl": "/os-2.png"
+  },
+  {
+    "id": 3,
+    "title": "Events and celebrations",
+    "description": "(corporate functions, birthdays, cultural festivals)",
+    "imageUrl": "/os-3.png" 
+  },
+  {
+    "id": 4,
+    "title": "Commercial shoots ",
+    "description": "(product, fashion, branding, architecture)",
+    "imageUrl": "/os-4.jpg"  
+  },
+  {
+    "id": 5,
+    "title": "Videography and cinematic highlights",
+    "description": "Capturing stunning visuals and storytelling moments through cinematic videography and highlight reels.",
+    "imageUrl": "/os-5.png"  
+  },
+  {
+    "id": 6,
+    "title": "Product photography",
+    "description": "Showcasing products with high-quality, professional imagery that highlights every detail and drives engagement.",
+    "imageUrl": "/os-6.png"
+  }
+]

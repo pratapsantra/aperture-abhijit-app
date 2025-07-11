@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/c1.jpg",
+    "heading": "About Us",
+    "description": "At [Your Company Name], capturing moments isn’t just our job—it’s our passion. Since [Year of Establishment], we’ve been dedicated to turning life’s most meaningful events into timeless images. Based in [City/Region], we serve clients across [Service Area] with creativity, precision, and heart."
+  },
+  {
+    "id": 2,
+    "imageUrl": "/c2.jpg",
+    "heading": "Who We Are",
+    "description": "We are a collective of seasoned photographers and visual storytellers who believe every frame holds a unique story. Our team blends artistic vision with technical mastery to deliver images that resonate with emotion and authenticity."
+  },
+  {
+    "id": 3,
+    "imageUrl": "/c3.jpg",
+    "heading": "Our Vision",
+    "description": "To inspire and delight through exceptional imagery that preserves memories and ignites nostalgia for years to come. We strive to be recognized as the go-to photography studio for clients who value artistry, reliability, and personal connection."
+  }
+]
