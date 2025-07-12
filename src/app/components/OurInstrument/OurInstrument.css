@@ -1,0 +1,366 @@
+.our-strangth-section {
+  margin-bottom: 125px;
+  padding: 20px;
+}
+
+.gallery-container {
+  display: flex;
+  gap: 10px;
+  /* Adjust as needed for spacing */
+  width: 100%;
+  /* Or a specific width */
+  height: 300px;
+  /* Or a specific height */
+}
+
+.gallery-item {
+  flex: 1;
+  overflow: hidden;
+  /* Add the transition property to the element that changes its flex-grow value */
+  transition: flex-grow 0.3s ease-in-out;
+  /* Transition 'flex-grow' over 0.3 seconds with an ease-in-out speed curve */
+}
+
+/*  */
+.gallery-item:hover {
+  flex-grow: 1.5;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- */
+/* .gallery-item{
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.gallery-container:hover > :not(:hover){
+  opacity: 0.3;
+}
+.gallery-item:hover{
+  transform: scale(1.2);
+} */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+/* body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #242424;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  perspective: 1000px;
+} */
+/* ----------- */
+/* .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.box-card {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+.box-card img{
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.box-card:hover {
+  animation: rotate3d 8s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  backface-visibility: visible;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #2a2a2a, #383838);
+  border: 2px solid #646cff;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.face::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  top: -100%;
+  left: -100%;
+  transition: all 0.5s ease;
+  transform: translateZ(20px);
+}
+
+.face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.face:hover::before {
+  top: 100%;
+  left: 100%;
+}
+
+.face:hover::after {
+  opacity: 1;
+}
+
+.front {
+  transform: translateZ(100px);
+  border-color: #646cff;
+}
+
+.back {
+  transform: translateZ(-100px) rotateY(180deg);
+  border-color: #00bcd4;
+}
+
+.right {
+  transform: translateX(100px) rotateY(90deg);
+  border-color: #4caf50;
+}
+
+.left {
+  transform: translateX(-100px) rotateY(-90deg);
+  border-color: #ff4081;
+}
+
+.top {
+  transform: translateY(-100px) rotateX(90deg);
+  border-color: #ffc107;
+}
+
+.bottom {
+  transform: translateY(100px) rotateX(-90deg);
+  border-color: #9c27b0;
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+
+  25% {
+    transform: rotateX(90deg) rotateY(90deg);
+  }
+
+  50% {
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+
+  75% {
+    transform: rotateX(270deg) rotateY(270deg);
+  }
+
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .box-card {
+    width: 150px;
+    height: 150px;
+  }
+
+  .front {
+    transform: translateZ(75px);
+  }
+
+  .back {
+    transform: translateZ(-75px) rotateY(180deg);
+  }
+
+  .right {
+    transform: translateX(75px) rotateY(90deg);
+  }
+
+  .left {
+    transform: translateX(-75px) rotateY(-90deg);
+  }
+
+  .top {
+    transform: translateY(-75px) rotateX(90deg);
+  }
+
+  .bottom {
+    transform: translateY(75px) rotateX(-90deg);
+  }
+} */
+/* ------------------------------ */
+/*  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+/* .gallery-panel img {
+  max-width: 100%;
+} */
+
+/* body {
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+  background-color: #fff;
+  border-top: 10px solid #f1d23a;
+  padding: 40px 80px;
+} */
+
+/* h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+} */
+
+.gallery {
+  max-width: 800px;
+  height: 450px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.gallery:has(.gallery-panel:hover) .gallery-panel:not(:hover) img {
+  filter: grayscale(100%);
+}
+
+.gallery-panel {
+  flex: 1;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.5s ease-in-out;
+  border: 1px solid #aeaeae;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: red;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.gallery-panel:hover::before {
+  transform: translateX(0);
+}
+
+.gallery-panel>* {
+  position: relative;
+  z-index: 1;
+  /* keeps content above the red background */
+}
+
+.gallery-panel:hover {
+  flex: 5.5;
+}
+
+.gallery-panel:hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* transition: 0.5s ease; */
+}
+
+.gallery-panel:hover .strangth-name p {
+  opacity: 1;
+}
+
+.gallery-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.strangth-name {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  z-index: 20;
+}
+
+.strangth-name p {
+  margin-bottom: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+   font-family: var(--font-roboto);
+   font-weight: 800;
+   color:#000
+}
+
+.gallery-panel:nth-child(1)::before {
+  background: rgb(212, 51, 51);
+}
+
+.gallery-panel:nth-child(2)::before {
+  background: rgb(4, 230, 199);
+}
+
+.gallery-panel:nth-child(3)::before {
+  background: rgb(238, 183, 3);
+}
+
+.gallery-panel:nth-child(4)::before {
+  background: rgb(192, 2, 209);
+}
+
+.gallery-panel:nth-child(5)::before {
+  background: rgb(4, 221, 22);
+}
+
+
+
+@media screen and (max-width : 768px) {
+  .gallery {
+    max-width: 800px;
+    height: 200px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}

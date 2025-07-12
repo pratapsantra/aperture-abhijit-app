@@ -27,8 +27,8 @@ function WhyChooseUs() {
             <div className="why-choose-content-container">
                 {WhyChooseUsData && WhyChooseUsData.map((item, indexd) => (
                     <div className="why-choose-content-card">
-                        <div><p>{item.id}</p></div>
-                        <div><h5>{item.description}</h5></div>
+                        <div className="number-container"><h4>{item.id}</h4></div>
+                        <div className="details-container"><p>{item.description}</p></div>
                     </div>
                 ))}
 

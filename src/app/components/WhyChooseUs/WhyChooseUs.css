@@ -24,26 +24,44 @@
     position: relative;
 }
 
-.why-choose-content-container {
+/* .why-choose-content-container {
     display: grid;
-    grid-auto-columns: minmax(auto-fill, (100px, 1fr));
-    /* grid-template-rows: auto auto; */
-    /* two rows: one for p, one for h4 */
+    grid-auto-columns: repeat(auto-fill, minmax(300px, 1fr));
+    
     gap: 20px;
     padding:20px;
     margin: 15px;
     grid-auto-flow: row
+} */
+
+.why-choose-content-container {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(2, 1fr);
+    ;
+    gap: 20px;
+    /* border:1px solid #fff; */
+    /* border-radius: 10px; */
+    padding: 20px;
+    margin: 20px;
 }
 
 .why-choose-content-card {
-    /* display: grid; */
-    /* grid-auto-flow: row; */
-    /* grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); */
-    border:1px solid #fff;
-    border-radius: 10px;
-    padding:20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    min-height: 100px;
+    /* padding:20px; */
+    overflow: hidden;
+}
+
+.number-container {
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -51,9 +69,35 @@
 .why-choose-content-card h5 {
     color: #fff;
     margin: 0;
-    border: 1px solid #ff0000;
+    /* border: 1px solid #ff0000; */
 }
-.why-choose-content-card p{
-    width:80px;
+
+.number-container {
+    margin-right: 20px;
+}
+
+.why-choose-content-card h4 {
+    width: 80px;
     text-align: center;
+    font-size: 60px;
+    font-family: var(--font-roboto);
+    color: #5e5e5e;
+    font-weight: 700;
+}
+.why-choose-content-card p {
+    font-size: 20px;
+    font-family: var(--font-roboto);
+    color: #ffffff;
+    font-weight: 200;
+    text-transform:capitalize;
+}
+
+.details-container {
+    padding: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .why-choose-content-container {
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    }
 }
