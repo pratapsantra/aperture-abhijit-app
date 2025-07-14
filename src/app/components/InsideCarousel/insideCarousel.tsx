@@ -107,55 +107,6 @@ class VerticalMouseDrivenCarousel {
         );
     }
 
-    /* bgImgController() {
-        for (const link of this.getListItems()) {
-            link.addEventListener("mouseenter", ev => {
-                this.stopAutoChange();
-                console.log("mouseenter----------------", ev)
-                const currentId = (ev.currentTarget as HTMLElement).dataset.itemId;
-                const index = parseInt(currentId as string);
-                this.listOpacityController(index);
-
-                gsap.to(ev.currentTarget, 0.3, {
-                    autoAlpha: 1,
-                    ease: "power3.out",
-                    duration: 1,
-                    // scale: 1.05
-                });
-
-                gsap.to(".is-visible", 0.2, {
-                    autoAlpha: 0,
-                    // scale: 1.05,
-                    ease: "power2.in",
-                    duration: 1,
-                });
-
-                const bgImgs = this.getBgImgs();
-
-                if (!bgImgs[index].classList.contains("is-visible")) {
-                    bgImgs[index].classList.add("is-visible");
-                }
-
-                gsap.to(bgImgs[index], 0.6, {
-                    autoAlpha: 1,
-                    scale: 1,
-                    ease: "power4.out",
-                    duration: 1
-                });
-
-                // Update active state
-                this.getListItems().forEach(item => item.classList.remove("active"));
-                (ev.currentTarget as HTMLElement).classList.add("active");
-                this.bgImgIndex = index;
-                this.scrollToActiveItem(this.bgImgIndex);
-            });
-
-            link.addEventListener("mouseleave", () => {
-                this.startAutoChange();
-            });
-        }
-    } */
-
     bgImgController() {
         for (const link of this.getListItems()) {
             const handleInteraction = (ev: Event) => {
