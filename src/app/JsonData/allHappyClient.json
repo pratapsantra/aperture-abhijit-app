@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/hca-1.jpg",
+    "description": "We’re so happy we chose Aperture Abhijit for our wedding! From start to finish, the experience was smooth and enjoyable. The photos are absolutely beautiful — every emotion, every detail, perfectly captured. We’ll cherish them forever.",
+    "background":"",
+    "clientName": "Rohit & Priya"
+  },
+  {
+    "id": 2,
+    "imageUrl": "/hca-2.jpg",
+    "description": "Working with Aperture Abhijit was a dream. They made us feel so comfortable, even during the hectic moments of the day. The photos are natural, vibrant, and truly reflect the happiness of our wedding. Highly recommended!",
+    "background":"",
+    "clientName": "Amit & Neha"
+  },
+  {
+    "id": 3,
+    "imageUrl": "/hca-3.jpg",
+    "description":  "Thank you, Aperture Abhijit, for capturing our special day with such creativity and care. Every photo feels genuine and full of life. We love how you caught the little candid moments we’ll always treasure.",
+    "background":"",
+    "clientName": "Vikram & Sneha"
+  },
+  {
+    "id": 4,
+    "imageUrl": "/hca-4.jpg",
+    "description": "The perfect blend of professionalism and friendliness. Aperture Abhijit understood exactly what we wanted and delivered beyond our expectations. The photos tell the story of our wedding in the most beautiful way.",
+    "background":"",
+    "clientName": "Rahul & Anjali"
+  },
+  {
+    "id": 5,
+    "imageUrl": "/hca-5.jpg",
+    "description": "We couldn’t have asked for a better photographer. Aperture Abhijit was calm, attentive, and knew how to make us feel at ease. The photos are stunning — timeless and filled with emotion. We’re so grateful!",
+    "background":"",
+    "clientName": "Arjun & Meera"
+  },
+  {
+    "id": 6,
+    "imageUrl": "/hca-6.png",
+    "description": "Incredible work from an incredible photographer! Aperture Abhijit captured every important moment, plus so many little ones we didn’t even realize at the time. The photos came out amazing and we’ll treasure them forever.",
+    "background":"",
+    "clientName": "Karan & Pooja"
+  }
+]
