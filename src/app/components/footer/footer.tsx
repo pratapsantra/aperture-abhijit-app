@@ -46,10 +46,10 @@ export default function footer() {
                                         <div className="quick_Links_textbox">
                                             <ul>
                                                 <li><a href="/aboutus">About us</a></li>
-                                                <li><a href="#">Service</a></li>
-                                                <li><a href="#">Gallery</a></li>
-                                                <li><a href="#">Client </a></li>
-                                                <li><a href="#">Contact Us</a></li>
+                                                <li><a href="/service">Service</a></li>
+                                                <li><a href="/gallery">Gallery</a></li>
+                                                <li><a href="/client">Client </a></li>
+                                                <li><a href="/contact">Contact Us</a></li>
                                             </ul>
                                         </div>
                                     </div>
