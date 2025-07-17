@@ -1,11 +1,11 @@
 'use client';
 import React, { Suspense, useEffect, useState } from "react";
-// import InsideCarousel from "../components/InsideCarousel/insideCarousel";
+
 import aboutCarouselData from '../JsonData/aboutCarousel.json';
 import '../components/HappyClientAll/HappyClientAll.css';
 import dynamic from 'next/dynamic';
 
-// import HappyClientAll from "../components/HappyClientAll/HappyClientAll";
+
 import { Loader } from "../components/Loader/Loader";
 const InsideCarousel = dynamic(() => import("../components/InsideCarousel/insideCarousel"), {
     ssr: false
