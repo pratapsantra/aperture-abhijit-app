@@ -1,25 +1,40 @@
 'use client';
-import React from "react";
-import InsideCarousel from "../components/InsideCarousel/insideCarousel";
+import React, { Suspense, useEffect, useState } from "react";
+// import InsideCarousel from "../components/InsideCarousel/insideCarousel";
 import aboutCarouselData from '../JsonData/aboutCarousel.json';
-import AboutusContent from "../components/AboutusComponent/AboutusContent/AboutusContent";
-import AboutusOurServices from "../components/AboutusOurServices/AboutusOurServices";
-import OurProcessItem from "../components/OurProcess/OurProcess";
-import Videography from "../components/Videography/Videography";
-import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
-import HappyClientAll from "../components/HappyClientAll/HappyClientAll";
+import '../components/HappyClientAll/HappyClientAll.css';
+import dynamic from 'next/dynamic';
 
-export default function client() {
+// import HappyClientAll from "../components/HappyClientAll/HappyClientAll";
+import { Loader } from "../components/Loader/Loader";
+const InsideCarousel = dynamic(() => import("../components/InsideCarousel/insideCarousel"), {
+    ssr: false
+});
+const HappyClientAll = dynamic(() => import("../components/HappyClientAll/HappyClientAll"), {
+    ssr: false
+});
+
+export default function Client() {
+
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [carouselLoaded, setCarouselLoaded] = useState(false);
+    const [happyClientLoaded, setHappyClientLoaded] = useState(false);
+
+    useEffect(() => {
+        if (carouselLoaded && happyClientLoaded) {
+            setIsLoaded(true);
+        }
+    }, [carouselLoaded, happyClientLoaded]);
+
     return (
         <>
-            <section className='section-container padding-null  '>  {/* //page-postion */}
-                    <InsideCarousel data={aboutCarouselData} />
-                    <HappyClientAll />
-                    {/* <WhyChooseUs /> */}
-                    {/* <Videography /> */}
-                    {/* <AboutusOurServices /> */}
-                    {/* <OurProcessItem /> */}
+            {!isLoaded && <Loader />}
+            <section className='section-container padding-null'> 
+                <InsideCarousel data={aboutCarouselData} onLoaded={() => setCarouselLoaded(true)} />
+
+                <HappyClientAll onLoaded={() => setHappyClientLoaded(true)} />
             </section>
+
         </>
     );
 };

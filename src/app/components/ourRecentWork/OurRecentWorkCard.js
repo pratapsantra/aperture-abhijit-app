@@ -88,6 +88,7 @@ const carouselItems = [
     },
 ];
 
+import { Slide, AttentionSeeker, Zoom, Bounce, Flip, Hinge, JackInTheBox, Roll } from "react-awesome-reveal";
 
 export default function OurRecentWorkCard() {
 
@@ -585,7 +586,7 @@ export default function OurRecentWorkCard() {
         }, 500);
         // };
 
-        
+
 
         let autoMove;
         let autoStartTimeout;
@@ -624,7 +625,7 @@ export default function OurRecentWorkCard() {
         }, 3000);
 
         // Pause on hover, resume on leave
-        const carouselCards  = document.querySelectorAll('.carousel-card'); // Adjust selector as needed
+        const carouselCards = document.querySelectorAll('.carousel-card'); // Adjust selector as needed
 
         carouselCards.forEach(card => {
             card.addEventListener('mouseenter', () => {
@@ -648,62 +649,64 @@ export default function OurRecentWorkCard() {
 
     return (
         <>
-            <div className="carousel-container" ref={mainContainerRef} >
-                <div className="carousel-track">
-                    {carouselItems.map((item, index) => (
-                        <div className="carousel-card" key={index}>
-                            <div className="card-image-container">
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    width={320}
-                                    height={200}
-                                    className="card-image"
-                                />
-                            </div>
-
-                            <div className="card-content">
-                                <h3 className={`card-title text-xl font-bold ${item.color}`} data-text={item.title}>
-                                    {item.title}
-                                </h3>
-                                <p className="card-description">{item.description}</p>
-                                <div className="card-progress">
-                                    <div className="progress-value" style={{ width: `${item.progress}%` }}></div>
+            <Zoom>
+                <div className="carousel-container" ref={mainContainerRef} >
+                    <div className="carousel-track">
+                        {carouselItems.map((item, index) => (
+                            <div className="carousel-card" key={index}>
+                                <div className="card-image-container">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        width={320}
+                                        height={200}
+                                        className="card-image"
+                                    />
                                 </div>
-                                <div className="card-stats">
-                                    <span>{item.phase}</span>
-                                    <span>{item.progress}% COMPLETE</span>
-                                </div>
-                            </div>
 
-                            <div className="tech-details">
-                                {item.tech.map((techItem, techIndex) => (
-                                    <div className="tech-tag" key={techIndex}>
-                                        {techItem}
+                                <div className="card-content">
+                                    <h3 className={`card-title text-xl font-bold ${item.color}`} data-text={item.title}>
+                                        {item.title}
+                                    </h3>
+                                    <p className="card-description">{item.description}</p>
+                                    <div className="card-progress">
+                                        <div className="progress-value" style={{ width: `${item.progress}%` }}></div>
                                     </div>
-                                ))}
+                                    <div className="card-stats">
+                                        <span>{item.phase}</span>
+                                        <span>{item.progress}% COMPLETE</span>
+                                    </div>
+                                </div>
+
+                                <div className="tech-details">
+                                    {item.tech.map((techItem, techIndex) => (
+                                        <div className="tech-tag" key={techIndex}>
+                                            {techItem}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
 
-                <button className="carousel-button prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                    </svg>
-                </button>
-                <button className="carousel-button next">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                    </svg>
-                </button>
+                    <button className="carousel-button prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <button className="carousel-button next">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
 
-                <div className="carousel-indicators">
-                    {carouselItems.map((item, index) => (
-                        <div className="indicator active" key={index}></div>
-                    ))}
+                    <div className="carousel-indicators">
+                        {carouselItems.map((item, index) => (
+                            <div className="indicator active" key={index}></div>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </Zoom>
         </>
     );
 

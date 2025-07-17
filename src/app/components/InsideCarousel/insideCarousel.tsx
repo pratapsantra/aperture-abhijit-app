@@ -284,16 +284,19 @@ class VerticalMouseDrivenCarousel {
 
 interface CarouselProps {
     data: any[]; // ideally, replace `any` with the correct type of each carousel item
+     onLoaded: () => void;
 }
 
 // export default function InsideCarousel() {
-const InsideCarousel: React.FC<CarouselProps> = ({ data }) => {
+const InsideCarousel: React.FC<CarouselProps> = ({ data, onLoaded }) => {
 
     const [carouselData, setCarouselData] = useState(data);
 
     useEffect(() => {
 
         const carouselInstance = new VerticalMouseDrivenCarousel();
+
+        onLoaded();
         // Cleanup
         return () => {
 

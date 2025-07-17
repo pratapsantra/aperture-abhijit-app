@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import "./HappyClientAll.css"
+// import "./HappyClientAll.css"
 import allHappyClient from '../../JsonData/allHappyClient.json'
 
 interface ClientReviewData {
@@ -8,9 +8,17 @@ interface ClientReviewData {
     imageUrl: string;
     description: string;
     background: string;  // Background color (hex or any CSS color)
-    clientName?: string
+    clientName?: string;
+    
 }
-function HappyClientAll() {
+
+// ✅ Define Props interface for your component
+interface HappyClientAllProps {
+    onLoaded: () => void;
+}
+
+
+function HappyClientAll({onLoaded}:HappyClientAllProps ) {
     const [clientReview, setClientReview] = useState<ClientReviewData[]>(allHappyClient)
 
 
@@ -22,6 +30,8 @@ function HappyClientAll() {
         }));
 
         setClientReview(updatedClients);
+
+        onLoaded();
         // Optional: return cleanup function if necessary
         return () => {
 
@@ -42,14 +52,14 @@ function HappyClientAll() {
             <div className='inner-container'>
                 <div className='heading-container'>
                     <div className='heading-text-container'>
-                        <h3>Our client Speech</h3>
+                        <h3>Our Client Speech</h3>
                     </div>
                 </div>
             </div>
             <div className="happy-client-all-container">
 
                 {clientReview && clientReview.map((client, index) => (
-                    <div className="happy-container">
+                    <div className="happy-container" key={client.id}>
 
                         <div className="card" style={{ ['--card-bg' as any]: client.background}}>
                             <div className="imgBx">
