@@ -72,8 +72,8 @@ export default function footer() {
                                         <h3>Contact</h3>
                                         <div className="latest_posts_textbox">
                                             <ul>
-                                                <li><span><FontAwesomeIcon icon={faLocationDot} color="#fff" /></span>60 Grant Ave. Carteret NJ 0708</li>
-                                                <li><span><FontAwesomeIcon icon={faSquarePhone} color="#fff" /></span>(880)  172 380 1729</li>
+                                                <li><span><FontAwesomeIcon icon={faLocationDot} color="#fff" /></span>Abhijit Saha <br /> 17/5, Boasepukur Raod, Sonartari Appartment, Flat No: 8, 4th Floor <br /> Kolkata-700084, India</li>
+                                                <li><span><FontAwesomeIcon icon={faSquarePhone} color="#fff" /></span>9732814504</li>
                                                 <li><span><FontAwesomeIcon icon={faSquareEnvelope} color="#fff" /></span>example@gmail.com</li>
                                             </ul>
                                         </div>

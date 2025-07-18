@@ -141,9 +141,10 @@
 .footer_contact .latest_posts_textbox ul li {
     font-size: 14px;
     font-family: 'Sansation_Light', sans-serif;
-    line-height: 40px;
+    /* line-height: 40px; */
     color: #747474;
     font-weight: normal;
+    margin-bottom: 10px;
 }
 
 .footer_contact .latest_posts_textbox ul li i {
