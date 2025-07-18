@@ -38,8 +38,8 @@ function AboutusOurServices() {
                         <div className='aboutus-our-services-container-card'>
                             <div className="icon-container">
                                 <Image
-                                    src={item.imageUrl}
-                                    alt={item.title}
+                                    src={item.imageUrl ?? 'default.jpg'}
+                                    alt={item.title ?? 'About Us'}
                                     width={60}
                                     height={60} />
                             </div>

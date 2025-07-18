@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 interface AboutusContentItem {
     id: number;
-    imageUrl?: string;
+    imageUrl?: string ;
     heading?: string;
     description?: string;
 }
@@ -36,8 +36,8 @@ function AboutusContent() {
                             <div key={item.id} className={`aboutus-content-Item ${index % 2 === 0 ? 'even' : 'odd'}`}>
                                 <div className="image-container">
                                     <Image
-                                        src={item.imageUrl}
-                                        alt={item.heading}
+                                        src={item.imageUrl  ?? 'default.jpg'}
+                                        alt={item.heading ?? 'About Us'}
                                         width={400}
                                         height={350}
                                         style={{ objectFit: 'cover', borderRadius: '10px' }}
