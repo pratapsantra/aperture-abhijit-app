@@ -1,8 +1,8 @@
 [build]
-  command = "next dev"
+  command = "next build"
   publish = ".next"
 
-  [functions]
+[functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
