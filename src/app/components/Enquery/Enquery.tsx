@@ -231,7 +231,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
         let error = false;
         const errorObj = { ...errorsObj };
 
-        /* if (eventDate === null) {
+        if (eventDate === null) {
             errorObj.eventDate = "Please provide your Event Date";
             error = true;
         }
@@ -355,7 +355,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
             }
             errorObj.captcha = "Mismatch with image text";
             error = true;
-        } */
+        } 
 
 
         setErrors(errorObj);
