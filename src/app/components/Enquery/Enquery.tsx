@@ -429,7 +429,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
                 </div>
                 <div className="enquery-container">
                     <div className='enquiry_now_container' id='enquiry-now'>
-                        <div className='section-heading'><h4>Enquery<span className='success-message'>{isShowMessage}</span></h4></div>
+                        <div className='section-heading'><h4>Enquery Test<span className='success-message'>{isShowMessage}</span></h4></div>
                         <form onSubmit={onSubmit}>
                             <div className="enquiry-input-container">
                                 <DatePicker
