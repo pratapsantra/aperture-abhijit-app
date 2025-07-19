@@ -3,19 +3,24 @@
 
 import React from 'react';
 import HappyClientCard from '../components/HappyClient/HappyClientCard'
+import { Slide, AttentionSeeker, Zoom, Bounce, Flip, Hinge, JackInTheBox, Roll } from "react-awesome-reveal";
 
 export default function OurRecentWorkPage() {
   return (
     <section className='section-container'>
       <div className='inner-container'>
-        <div className='heading-container'>
-          <div className='heading-text-container'>
-            <h3>Happy Client</h3>
+        <Slide>
+          <div className='heading-container'>
+            <div className='heading-text-container'>
+              <h3>Happy Client</h3>
+            </div>
           </div>
-        </div>
+        </Slide>
       </div>
       <div>
-        <HappyClientCard />
+        <Zoom duration={500}>
+          <HappyClientCard />
+        </Zoom>
       </div>
     </section>
   );

@@ -43,7 +43,6 @@ interface EnqueryProps {
 
 function Enquery({ onLoaded }: EnqueryProps) {
 
-
     let errorsObj = {
         fname: "",
         lname: "",
@@ -232,7 +231,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
         let error = false;
         const errorObj = { ...errorsObj };
 
-        if (eventDate === null) {
+        /* if (eventDate === null) {
             errorObj.eventDate = "Please provide your Event Date";
             error = true;
         }
@@ -356,7 +355,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
             }
             errorObj.captcha = "Mismatch with image text";
             error = true;
-        }
+        } */
 
 
         setErrors(errorObj);
@@ -372,21 +371,26 @@ function Enquery({ onLoaded }: EnqueryProps) {
                 // Call your function here
                 setSaveEnquiry("success")
             }, 5000); // Delay in milliseconds (5000ms = 5 seconds)
-            const enqueryData = { fname: enquiryDetails.fname, lname: enquiryDetails.lname, phone_no: enquiryDetails.phone, email: enquiryDetails.email, message: enquiryDetails.message, eventDate:enquiryDetails.eventDate, eventTypeOption:enquiryDetails.eventTypeOption, location:enquiryDetails.location  }
+            const enqueryData = { fname: enquiryDetails.fname, lname: enquiryDetails.lname, phone_no: enquiryDetails.phone, email: enquiryDetails.email, message: enquiryDetails.message, eventDate: enquiryDetails.eventDate, eventTypeOption: enquiryDetails.eventTypeOption, location: enquiryDetails.location }
 
-             
 
-            const res = await fetch('/api/contact', {
+
+            /* const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(enqueryData),
-            })
+            }) */
 
+
+            const res = await fetch('/.netlify/functions/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(enqueryData),
+            });
 
             if (res.ok) alert('Message sent!')
             else alert('Failed to send message.')
 
-            //   dispatch(saveEnquiryThunk({ fname: enquiryDetails.fname, lname: enquiryDetails.lname, phone_no: enquiryDetails.phone, email: enquiryDetails.email, message: enquiryDetails.message }))
         }
         // refreshCaptchText();
     };

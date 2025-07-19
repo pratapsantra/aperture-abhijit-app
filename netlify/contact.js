@@ -1,29 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-/* 
- fname: "",
-        phone: "",
-        email: "",
-        message: "",
-        captcha: "",
-        eventDate: "",
-        eventTypeOption: "",
-        location: ""
 
 
-*/
-
-export async function POST(req: NextRequest) {
+export async function POST(req) {
   const body = await req.json()
   console.log("Received body:", body)
 
   const { fname, phone_no, email, message, eventDate, eventTypeOption, location } = body
   const name = `${fname} `
 
-  /* if (!fname || !email || !message || !phone_no || !eventDate || !eventTypeOption || !location) {
+  if (!fname || !email || !message || !phone_no || !eventDate || !eventTypeOption || !location) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
-  } */
+  }
 
   try {
     const transporter = nodemailer.createTransport({

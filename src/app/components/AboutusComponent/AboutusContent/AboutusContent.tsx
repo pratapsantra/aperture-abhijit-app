@@ -36,7 +36,7 @@ function AboutusContent() {
                             <div key={item.id} className={`aboutus-content-Item ${index % 2 === 0 ? 'even' : 'odd'}`}>
                                 <div className="image-container">
                                     <Image
-                                        src={item.imageUrl  ?? 'default.jpg'}
+                                        src={item.imageUrl  ?? 'default.png'}
                                         alt={item.heading ?? 'About Us'}
                                         width={400}
                                         height={350}
