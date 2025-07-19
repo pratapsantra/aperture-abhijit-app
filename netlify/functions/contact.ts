@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer'
 
 
 
-export async function POST(req) {
+export async function POST(req:NextRequest ) {
   const body = await req.json()
   console.log("Received body:", body)
 

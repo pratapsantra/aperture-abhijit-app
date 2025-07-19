@@ -43,7 +43,7 @@
     "src/app/components/ourRecentWork/OurRecentWorkCard.js",
     "src/app/components/HappyClient/HappyClientCard.js",
     "src/app/components/InsideCarousel/insideCarousel.tsx"
-, "netlify/contact.js"  ],
+, "netlify/functions/contact.js"  ],
   "exclude": [
     "node_modules"
   ]
