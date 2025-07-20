@@ -6,7 +6,7 @@
     padding-top: 25px;
     padding-bottom: 25px;
     margin-bottom: 30px;
-    padding:25px;
+    padding: 25px;
     /* background-attachment: fixed; */
 }
 
@@ -26,11 +26,11 @@
 }
 
 .aboutus-our-services-container-card-container {
-    /* position: relative; */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
+
 
 
 .aboutus-our-services-container-card {
@@ -38,10 +38,11 @@
     flex-direction: column;
     align-items: center;
     background-color: #00000040;
-    border: 1px solid #ccc;;
+    border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
-    margin: 20px
+    margin: 20px;
+    grid-column: span 1;
 }
 
 .aboutus-our-services-container-card h3 {
@@ -55,10 +56,11 @@
     font-size: 1rem;
     text-align: center;
 }
-.icon-container{
+
+.icon-container {
     display: flex;
-    width:80px;
-    height:80px;
+    width: 80px;
+    height: 80px;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
@@ -66,9 +68,10 @@
     background-color: #ffffff;
     overflow: hidden;
 }
-@media screen and (max-width: 981) {
+
+@media screen and (max-width: 981px) {
     .aboutus-our-services-container-card-container {
-        grid-template-columns: 1fr; /* Single column on smaller screens */
+        grid-template-columns: 1fr;
+        /* Single column on smaller screens */
     }
-    
 }

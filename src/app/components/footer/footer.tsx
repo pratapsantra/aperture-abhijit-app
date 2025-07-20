@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-import './footer.css'
+// import './footer.css'
 import Image from 'next/image';
 import companyLogo from '../../../../public/company-logo.jpg';
 

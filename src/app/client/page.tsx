@@ -1,5 +1,5 @@
 'use client';
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import aboutCarouselData from '../JsonData/aboutCarousel.json';
 import '../components/HappyClientAll/HappyClientAll.css';
@@ -28,7 +28,7 @@ export default function Client() {
 
     return (
         <>
-            {!isLoaded && <Loader />}
+            {!isLoaded && <Loader  />}
             <section className='section-container padding-null'> 
                 <InsideCarousel data={aboutCarouselData} onLoaded={() => setCarouselLoaded(true)} />
 

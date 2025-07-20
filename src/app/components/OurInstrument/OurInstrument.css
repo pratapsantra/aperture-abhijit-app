@@ -327,9 +327,11 @@
   margin-bottom: 0;
   opacity: 0;
   transition: opacity 0.5s ease;
-   font-family: var(--font-roboto);
-   font-weight: 800;
-   color:#000
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  color: #ffffff;
+  font-stretch: condensed;
 }
 
 .gallery-panel:nth-child(1)::before {
@@ -362,5 +364,9 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+  }
+
+  .strangth-name p {
+    font-size: 20px;
   }
 }

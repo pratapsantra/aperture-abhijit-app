@@ -1,11 +1,20 @@
 // app/about/page.tsx
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import OurTeamCard from '../components/OurTeam/OurTeamCard'
 import { Slide, AttentionSeeker, Zoom, Bounce, Flip, Hinge, JackInTheBox, Roll } from "react-awesome-reveal";
 
-export default function OurRecentWorkPage() {
+export default function OurRecentWorkPage({ onLoaded }) {
+
+  useEffect(() => {
+    onLoaded();
+    // Cleanup
+    return () => {
+
+    };
+  }, []);
+  
   return (
     <section className='section-container'>
       <div className='inner-container'>

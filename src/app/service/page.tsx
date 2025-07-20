@@ -1,20 +1,49 @@
 'use client';
-import React, { useState } from "react";
-import InsideCarousel from "../components/InsideCarousel/insideCarousel";
+import React, { useEffect, useState } from "react";
 import aboutCarouselData from '../JsonData/aboutCarousel.json';
-import AboutusOurServices from "../components/AboutusOurServices/AboutusOurServices";
-import Videography from "../components/Videography/Videography";
-import OurStrangth from "../components/OurInstrument/OurInstrument"
+
+import dynamic from 'next/dynamic';
+import { Loader } from "../components/Loader/Loader";
+
+const InsideCarousel = dynamic(() => import("../components/InsideCarousel/insideCarousel"), {
+    ssr: false
+});
+
+const AboutusOurServices = dynamic(() => import("../components/AboutusOurServices/AboutusOurServices"), {
+    ssr: false
+});
+
+const Videography = dynamic(() => import("../components/Videography/Videography"), {
+    ssr: false
+});
+
+const OurStrangth = dynamic(() => import("../components/OurInstrument/OurInstrument"), {
+    ssr: false
+});
 
 export default function aboutus() {
+
+
+    const [isLoaded, setIsLoaded] = useState(false);
     const [carouselLoaded, setCarouselLoaded] = useState(false);
+    const [AboutusOurServicesLoaded, setAboutusOurServicesLoaded] = useState(false);
+    const [VideographyLoaded, setVideographyLoaded] = useState(false);
+    const [OurStrangthLoaded, setOurStrangthLoaded] = useState(false);
+
+    useEffect(() => {
+        if (carouselLoaded && AboutusOurServicesLoaded && VideographyLoaded && OurStrangthLoaded) {
+            setIsLoaded(true);
+        }
+    }, [carouselLoaded, AboutusOurServicesLoaded, VideographyLoaded, OurStrangthLoaded]);
+
     return (
         <>
-            <section className='section-container padding-null  '>  {/* //page-postion */}
-                    <InsideCarousel data={aboutCarouselData} onLoaded={() => setCarouselLoaded(true)}/>
-                    <Videography />
-                    <AboutusOurServices />
-                    <OurStrangth />
+            {!isLoaded && <Loader />}
+            <section className='section-container padding-null'> 
+                <InsideCarousel data={aboutCarouselData} onLoaded={() => setCarouselLoaded(true)} />
+                <Videography onLoaded={() => setAboutusOurServicesLoaded(true)} />
+                <AboutusOurServices onLoaded={() => setVideographyLoaded(true)} />
+                <OurStrangth onLoaded={() => setOurStrangthLoaded(true)} />
             </section>
         </>
     );

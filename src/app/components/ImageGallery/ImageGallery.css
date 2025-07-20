@@ -29,9 +29,9 @@
 
 .title-show h4 {
 	font-family: var(--font-roboto);
-	font-weight: 700;
-	color: rgb(124, 44, 4) !important;
-	font-size: 25px;
+	font-weight: 400;
+	color: rgb(0, 0, 0) !important;
+	font-size: 18px;
 	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
@@ -51,4 +51,8 @@
 		font-size: 12px;
 		text-align: center;
 	}
+}
+
+.yarl__portal{
+	z-index: 119999 !important;
 }

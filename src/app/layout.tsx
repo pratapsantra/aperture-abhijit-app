@@ -6,10 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import "./globals.css";
 import './cover.carousel.css'
 import './globalCustome.css'
+import './components/footer/footer.css'
+import 'animate.css';
 import React from 'react';
 import Navbar from './components/navigationbar/navigation'
 import Footer from './components/footer/footer'
 import WhatsappInfo from "./components/WhatsappInfo/whatsappInfo";  
+
 
 
 const geistSans = Geist({

@@ -1,16 +1,20 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import "./Enquery.css"
+
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import ourServices from '../../JsonData/ourServices.json'
 
 import Image from "next/image";
-import Spinner from '../Spinner'
-import refresh from '../../../../public/refresh.png'
-import locationIcon from '../../../../public/location-icon.png'
-import phoneIcon from '../../../../public/phone-icon-white.png'
+import Spinner from '../Spinner';
+import refresh from '../../../../public/refresh.png';
+import locationIcon from '../../../../public/location-icon.png';
+import phoneIcon from '../../../../public/phone-icon-white.png';
+
+import { ActionButton } from "../button/ActionButton";
+
+import { Slide, AttentionSeeker, Zoom, Bounce, Flip, Hinge, JackInTheBox, Roll } from "react-awesome-reveal";
 
 interface UserInfo {
     fname: string;
@@ -220,9 +224,9 @@ function Enquery({ onLoaded }: EnqueryProps) {
     }
 
     /* form validation  */
-    const enquirySubmit = async (e: any) => {
+    const enquirySubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        console.log("eventTypeOption-----", enquiryDetails)
+        
         const re = /^[A-Za-z\s]+$/;
         const onlyNumber = /^[0-9]+$/;
         const validEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -355,7 +359,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
             }
             errorObj.captcha = "Mismatch with image text";
             error = true;
-        } 
+        }
 
 
         setErrors(errorObj);
@@ -398,204 +402,242 @@ function Enquery({ onLoaded }: EnqueryProps) {
 
     return (
         <section className='contact-section'>
-            <div className='inner-container'>
-                <div className='heading-container'>
-                    <div className='heading-text-container'>
-                        <h3>Contact</h3>
+            <Zoom>
+                <div className='inner-container'>
+
+                    <div className='heading-container'>
+                        <div className='heading-text-container'>
+                            <h3>Contact</h3>
+                        </div>
                     </div>
+
                 </div>
-            </div>
+            </Zoom>
             <div className="enquery-parent-container">
+
                 <div className="contact-info-left-inside-container">
-                    <div className='enquiry-card-container'>
-                        <div>
-                            <Image className='info-img' src={locationIcon} alt="Aperture Abhijit" />
+                    <Slide direction="right">
+                        <div className='enquiry-card-container'>
+                            <div>
+                                <Image className='info-img' src={locationIcon} alt="Aperture Abhijit" />
+                            </div>
+                            <div>
+                                <div className='info-position'><h4>Location:</h4></div>
+                                <div className='info-details'><h6>Abhijit Saha <br /> 17/5, Boasepukur Raod, Sonartari Appartment, Flat No: 8, 4th Floor <br /> Kolkata-700084, India</h6></div>
+                            </div>
                         </div>
-                        <div>
-                            <div className='info-position'><h4>Location:</h4></div>
-                            <div className='info-details'><h6>Abhijit Saha <br /> 17/5, Boasepukur Raod, Sonartari Appartment, Flat No: 8, 4th Floor <br /> Kolkata-700084, India</h6></div>
+                        <div className='enquiry-card-container'>
+                            <div>
+                                <Image className='info-img' src={phoneIcon} alt="Aperture Abhijit" />
+                            </div>
+                            <div>
+                                <div className='info-position'><h4>Phone:</h4></div>
+                                <div className='info-details'><a href={`tel:` + 9732814504}><h6>{9732814504}</h6></a></div>
+                            </div>
                         </div>
-                    </div>
-                    <div className='enquiry-card-container'>
-                        <div>
-                            <Image className='info-img' src={phoneIcon} alt="Aperture Abhijit" />
-                        </div>
-                        <div>
-                            <div className='info-position'><h4>Phone:</h4></div>
-                            <div className='info-details'><a href={`tel:` + 9732814504}><h6>{9732814504}</h6></a></div>
-                        </div>
-                    </div>
-
+                    </Slide>
                 </div>
+
+
                 <div className="enquery-container">
-                    <div className='enquiry_now_container' id='enquiry-now'>
-                        <div className='section-heading'><h4>Enquery Test<span className='success-message'>{isShowMessage}</span></h4></div>
-                        <form onSubmit={onSubmit}>
-                            <div className="enquiry-input-container">
-                                <DatePicker
-                                    selected={enquiryDetails.eventDate}
-                                    onChange={enquiryDateChange}
-                                    id="eventDate"
-                                    name="eventDate"
-                                    dateFormat="dd/MM/yyyy"
-                                    placeholderText="Select event date"
-                                />
-                                {errors.eventDate && (
-                                    <div className='input-error'>
-                                        {errors.eventDate}
+                    <Slide direction="left">
+                        <div className='enquiry_now_container' id='enquiry-now'>
+                            <div className='section-heading'><h4>Enquery<span className='success-message'>{isShowMessage}</span></h4></div>
+                            <form onSubmit={onSubmit}>
+                                <div className="enquiry-input-container">
+                                    <div className={`floating-label-wrapper ${enquiryDetails.eventDate ? 'has-value' : ''}`}>
+                                        <DatePicker
+                                            selected={enquiryDetails.eventDate}
+                                            onChange={enquiryDateChange}
+                                            id="eventDate"
+                                            name="eventDate"
+                                            dateFormat="dd/MM/yyyy"
+                                            placeholderText=""
+                                            className="date-picker-input"
+                                        />
+                                        <label htmlFor="eventDate">Event Date</label>
                                     </div>
-                                )}
-                            </div>
-                            <div className="enquiry-input-container">
-                                <select
-                                    value={enquiryDetails.eventTypeOption}
-                                    onChange={handleDropdownChange}
-                                    style={{
-                                        color: enquiryDetails.eventTypeOption === "" ? "#737373" : "black"
-                                    }}
-                                >
-                                    <option value="">Select an option</option>
-                                    {eventType.map((event) => (
-                                        <option key={event.id} value={event.title}>
-                                            {event.title}
-                                        </option>
-                                    ))}
-                                </select>
-                                {errors.eventTypeOption && (
-                                    <div className='input-error'>
-                                        {errors.eventTypeOption}
-                                    </div>
-                                )}
-                            </div>
-                            <div className="enquiry-input-container">
-                                <input
-                                    ref={locationInputRef}
-                                    type="text"
-                                    id="location"
-                                    name="location"
-                                    value={enquiryDetails.location}
-                                    onChange={enquiryHandleChange}
-                                    placeholder="Location"
-                                    autoComplete="off" // Disable autofill
-                                />
-                                {errors.location && (
-                                    <div className='input-error'>
-                                        {errors.location}
-                                    </div>
-                                )}
-                            </div>
-                            <div className="enquiry-input-container">
-                                <input
-                                    ref={fnameInputRef}
-                                    type="text"
-                                    id="fname"
-                                    name="fname"
-                                    value={enquiryDetails.fname}
-                                    onChange={enquiryHandleChange}
-                                    placeholder="Your Name"
-                                    autoComplete="off" // Disable autofill
-                                />
-                                {errors.fname && (
-                                    <div className='input-error'>
-                                        {errors.fname}
-                                    </div>
-                                )}
-                            </div>
-
-                            <div className="enquiry-input-container">
-                                <input
-                                    ref={phoneInputRef}
-                                    type="text"
-                                    id="phone"
-                                    name="phone"
-                                    value={enquiryDetails.phone}
-                                    // value={enquiryDetails.email}
-                                    onChange={enquiryHandleChange}
-                                    placeholder="Your Whats App No."
-                                    minLength={10}
-                                    maxLength={10}
-                                    autoComplete="off" // Disable autofill
-                                />
-                                {errors.phone && (
-                                    <div className='input-error'>
-                                        {errors.phone}
-                                    </div>
-                                )}
-                            </div>
-                            <div className="enquiry-input-container">
-                                <input
-                                    ref={emailInputRef}
-                                    type="text"
-                                    id="email"
-                                    name="email"
-                                    value={enquiryDetails.email}
-                                    onChange={enquiryHandleChange}
-                                    placeholder="Email"
-                                    autoComplete="off" // Disable autofill
-                                />
-                                {errors.email && (
-                                    <div className='input-error'>
-                                        {errors.email}
-                                    </div>
-                                )}
-                            </div>
-                            <div className="enquiry-input-container">
-                                <textarea
-                                    ref={messageInputRef}
-                                    // type="text"
-                                    rows={4}
-                                    id="message"
-                                    name="message"
-                                    value={enquiryDetails.message}
-                                    onChange={enquiryHandleChange}
-                                    placeholder="Message"
-                                    autoComplete="off" // Disable autofill
-
-                                />
-                                {errors.message && (
-                                    <div className='input-error'>
-                                        {errors.message}
-                                    </div>
-                                )}
-                            </div>
-                            <div className="captcha_code_container">
-                                <div className="captcha_code_top_container">
-                                    <div className='captcha-img-container'>
-                                        {/* <Image className='captcha-img' src={appImages.captcha} alt="Aperture Abhijit" /> */}
-                                        <canvas ref={canvasRef} width={150} height={45} className='captcha-img'></canvas>
-                                    </div>
-                                    <div className='refresh-img-container' onClick={refreshCaptchText}>
-                                        <Image className='refresh-img' src={refresh} alt="Aperture Abhijit" />
-                                    </div>
+                                    {errors.eventDate && (
+                                        <div className='input-error'>
+                                            {errors.eventDate}
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="captcha_code_bottom_container">
-                                    <div className='captcha_code-container'>
+                                <div className="enquiry-input-container">
+                                    <div className={`floating-label-wrapper ${enquiryDetails.eventTypeOption ? 'has-value' : ''}`}>
+                                        <select
+                                            value={enquiryDetails.eventTypeOption}
+                                            onChange={handleDropdownChange}
+                                            style={{
+                                                color: enquiryDetails.eventTypeOption === "" ? "#737373" : "black"
+                                            }}
+                                        >
+                                            <option value=""></option>
+                                            {eventType.map((event) => (
+                                                <option key={event.id} value={event.title}>
+                                                    {event.title}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        <label>Select Event Type</label>
+                                    </div>
+                                    {errors.eventTypeOption && (
+                                        <div className='input-error'>
+                                            {errors.eventTypeOption}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="enquiry-input-container">
+                                    <div className="floating-label-wrapper">
                                         <input
-                                            ref={captchaInputRef}
+                                            ref={locationInputRef}
                                             type="text"
-                                            id="captcha_code"
-                                            name="captcha"
+                                            id="location"
+                                            name="location"
+                                            value={enquiryDetails.location}
                                             onChange={enquiryHandleChange}
-                                            value={enquiryDetails.captcha}
-                                            placeholder="Captcha Code"
+                                            placeholder=""
                                             autoComplete="off" // Disable autofill
                                         />
-                                        {errors.captcha && (
-                                            <div className='input-error'>
-                                                {errors.captcha}
+                                        <label htmlFor="location">Location</label>
+                                    </div>
+                                    {errors.location && (
+                                        <div className='input-error'>
+                                            {errors.location}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="enquiry-input-container">
+                                    <div className="floating-label-wrapper">
+                                        <input
+                                            ref={fnameInputRef}
+                                            type="text"
+                                            id="fname"
+                                            name="fname"
+                                            value={enquiryDetails.fname}
+                                            onChange={enquiryHandleChange}
+                                            placeholder=""
+                                            autoComplete="off" // Disable autofill
+                                        />
+                                        <label htmlFor="fname">Your Name</label>
+                                    </div>
+                                    {errors.fname && (
+                                        <div className='input-error'>
+                                            {errors.fname}
+                                        </div>
+                                    )}
+
+                                </div>
+
+                                <div className="enquiry-input-container">
+                                    <div className="floating-label-wrapper">
+                                        <input
+                                            ref={phoneInputRef}
+                                            type="text"
+                                            id="phone"
+                                            name="phone"
+                                            value={enquiryDetails.phone}
+                                            // value={enquiryDetails.email}
+                                            onChange={enquiryHandleChange}
+                                            placeholder=""
+                                            minLength={10}
+                                            maxLength={10}
+                                            autoComplete="off" // Disable autofill
+                                        />
+                                        <label htmlFor="phone">Your Whats App No.</label>
+                                    </div>
+                                    {errors.phone && (
+                                        <div className='input-error'>
+                                            {errors.phone}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="enquiry-input-container">
+                                    <div className="floating-label-wrapper">
+                                        <input
+                                            ref={emailInputRef}
+                                            type="text"
+                                            id="email"
+                                            name="email"
+                                            value={enquiryDetails.email}
+                                            onChange={enquiryHandleChange}
+                                            placeholder=""
+                                            autoComplete="off" // Disable autofill
+                                        />
+                                        <label htmlFor="email">Email</label>
+                                    </div>
+                                    {errors.email && (
+                                        <div className='input-error'>
+                                            {errors.email}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="enquiry-input-container">
+                                    <div className="floating-label-wrapper">
+                                        <textarea
+                                            ref={messageInputRef}
+                                            // type="text"
+                                            rows={4}
+                                            id="message"
+                                            name="message"
+                                            value={enquiryDetails.message}
+                                            onChange={enquiryHandleChange}
+                                            placeholder=""
+                                            autoComplete="off" // Disable autofill
+                                        />
+                                        <label htmlFor="message">Message</label>
+                                    </div>
+
+                                    {errors.message && (
+                                        <div className='input-error'>
+                                            {errors.message}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="captcha_code_container">
+                                    <div className="captcha_code_top_container">
+                                        <div className='captcha-img-container'>
+                                            {/* <Image className='captcha-img' src={appImages.captcha} alt="Aperture Abhijit" /> */}
+                                            <canvas ref={canvasRef} width={150} height={45} className='captcha-img'></canvas>
+                                        </div>
+                                        <div className='refresh-img-container' onClick={refreshCaptchText}>
+                                            <Image className='refresh-img' src={refresh} alt="Aperture Abhijit" />
+                                        </div>
+                                    </div>
+                                    <div className="captcha_code_bottom_container">
+                                        <div className='captcha_code-container'>
+                                            <div className="floating-label-wrapper">
+                                                <input
+                                                    ref={captchaInputRef}
+                                                    type="text"
+                                                    id="captcha_code"
+                                                    name="captcha"
+                                                    onChange={enquiryHandleChange}
+                                                    value={enquiryDetails.captcha}
+                                                    placeholder=""
+                                                    autoComplete="off" // Disable autofill
+                                                />
+                                                <label htmlFor="captcha">Captcha Code</label>
                                             </div>
-                                        )}
+                                            {errors.captcha && (
+                                                <div className='input-error'>
+                                                    {errors.captcha}
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={`enquiry-submit-container ${!isShowLoader ? 'cursor-pointer' : ''}`} onClick={!isShowLoader ? enquirySubmit : undefined}>{isShowLoader ? <Spinner /> : <><span>Submit</span></>}</div>
+                                {/* <div className={`enquiry-submit-container ${!isShowLoader ? 'cursor-pointer' : ''}`} onClick={!isShowLoader ? enquirySubmit : undefined}>{isShowLoader ? <Spinner /> : <><span>Submit</span></>}</div> */}
+                                <ActionButton text={'Submit'} onClick={(e:any) => enquirySubmit(e)} />
 
-                        </form>
-                        {/* <div className='enquiry-submit-container'>Submit</div> */}
 
-                    </div>
+                            </form>
+                            {/* <div className='enquiry-submit-container'>Submit</div> */}
 
+                        </div>
+                    </Slide>
                 </div>
+
             </div>
         </section>
 

@@ -52,14 +52,15 @@
     align-items: center;
     border: 1px solid #fff;
     border-radius: 10px;
-    min-height: 100px;
+    /* min-height: 100px; */
     /* padding:20px; */
     overflow: hidden;
+    height: 100%;
 }
 
 .number-container {
     background-color: #fff;
-    height: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,6 +75,7 @@
 
 .number-container {
     margin-right: 20px;
+    height: 100%;
 }
 
 .why-choose-content-card h4 {
@@ -83,6 +85,7 @@
     font-family: var(--font-roboto);
     color: #5e5e5e;
     font-weight: 700;
+    line-height: normal;
 }
 .why-choose-content-card p {
     font-size: 20px;

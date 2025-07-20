@@ -8,9 +8,9 @@ import ProjectCard from '../components/ourServices/ProjectCard'
 import ourServices from '../JsonData/ourServices.json'
 import { Slide, AttentionSeeker, Zoom, Bounce, Flip, Hinge, JackInTheBox, Roll } from "react-awesome-reveal";
 
-export default function OurServicesPage() {
+export default function OurServicesPage({onLoaded}) {
   useEffect(() => {
-    const sendTestMail = async () => {
+    /* const sendTestMail = async () => {
       const res = await fetch('/.netlify/functions/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -29,7 +29,8 @@ export default function OurServicesPage() {
       console.log('Response:', data)
     }
 
-    sendTestMail()
+    sendTestMail() */
+    onLoaded();
   }, [])
 
 

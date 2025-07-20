@@ -11,7 +11,7 @@ import "yet-another-react-lightbox/styles.css";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import ZoomPhoto from "yet-another-react-lightbox/plugins/zoom";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
@@ -19,6 +19,10 @@ import Video from "yet-another-react-lightbox/plugins/video";
 
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+
+import { Slide, AttentionSeeker, Zoom, Bounce, Flip, Hinge, JackInTheBox, Roll } from "react-awesome-reveal";
+
+import { Loader } from "../../components/Loader/Loader";
 
 type Photo = {
   src: string;
@@ -32,7 +36,7 @@ type Photo = {
   description?: string
 };
 
-function ImageGallery() {
+function ImageGallery({onLoaded}) {
 
   const [photos, setPhotos] = useState<Photo[]>()
   const [index, setIndex] = useState(-1);
@@ -52,7 +56,7 @@ function ImageGallery() {
           title: `Title for ${imageName}`,
           // href: `/gallery/${imageName}`,
           label: `Label for ${imageName}`,
-          
+
         });
       };
     });
@@ -74,7 +78,8 @@ function ImageGallery() {
           description:
             `Photo description\n ${index + 1} Title`,
         }));
-        setPhotos(photos)
+        setPhotos(photos);
+        onLoaded();
         // console.log("index-----", photos[0])
       });
   }, []);
@@ -83,25 +88,31 @@ function ImageGallery() {
 
     <section className='working-time-section'>
       <div className='inner-container'>
-        <div className='heading-container'>
-          <div className='heading-text-container'>
-            <h3>Image Gallery</h3>
+        <Slide direction='left'>
+          <div className='heading-container'>
+            <div className='heading-text-container'>
+              <h3>Image Gallery</h3>
+            </div>
           </div>
-        </div>
+        </Slide>
       </div>
       {photos && photos?.length > 0 ? (
-        <MasonryPhotoAlbum
-          photos={photos}
-          onClick={({ index }) => setIndex(index)}
-          render={{
-            extras: (_, { photo, index }) => (
-              <div className='title-show'>
-                <h4>{photo?.title}</h4>
-              </div>
-            ),
-          }}
-        />
-      ) : null}
+        <Slide direction='left'>
+          <MasonryPhotoAlbum
+            photos={photos}
+            onClick={({ index }) => setIndex(index)}
+            render={{
+              extras: (_, { photo, index }) => (
+                <Zoom>
+                  <div className='title-show'>
+                    <h4>{photo?.title}</h4>
+                  </div>
+                </Zoom>
+              ),
+            }}
+          />
+        </Slide>
+      ) : <Loader customHeight="0" />}
 
       <Lightbox
         slides={photos}
@@ -109,7 +120,7 @@ function ImageGallery() {
         index={index}
         close={() => setIndex(-1)}
         // enable optional lightbox plugins
-        plugins={[Captions, Fullscreen, Slideshow, Thumbnails, Video, Zoom]}
+        plugins={[Captions, Fullscreen, Slideshow, Thumbnails, Video, ZoomPhoto]}
 
       />
 

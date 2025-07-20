@@ -33,7 +33,7 @@ export const handler: Handler = async (event, context) => {
 
     await transporter.sendMail({
       from: email,
-      to: process.env.EMAIL_USER,
+      to: `${process.env.EMAIL_USER}, pratapc_s@yahoo.com`,
       subject: `New Contact from ${fname}`,
       text: `
         You have a new enquiry:

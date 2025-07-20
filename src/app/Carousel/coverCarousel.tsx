@@ -4,7 +4,7 @@ import Script from 'next/script';
 import homeCarousel from '../JsonData/homeCarousel.json'
 import IonIcon from '@reacticons/ionicons';
 
-export default function Carousel() {
+export default function Carousel({onLoaded}) {
 
     const sliderRef = useRef<HTMLUListElement | null>(null);
     const [isVisible, setIsVisible] = useState<boolean>(true);
@@ -68,6 +68,7 @@ export default function Carousel() {
             // movePrev();
         }, 6000);
 
+        onLoaded()
         // Cleanup
         return () => {
             document.removeEventListener('click', handleClick);

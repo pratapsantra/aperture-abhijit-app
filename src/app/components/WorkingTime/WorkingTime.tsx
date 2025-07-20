@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import "./WorkingTime.css"
 
-function WorkingTime() {
+function WorkingTime({onLoaded}) {
 
     useEffect(() => {
 
-
+        onLoaded();
         // Optional: return cleanup function if necessary
         return () => {
 

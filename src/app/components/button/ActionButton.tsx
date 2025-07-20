@@ -4,7 +4,7 @@ import styles from "./ActionButton.module.css";
 
 interface ActionButtonProps {
   text: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export function ActionButton({ text, onClick }: ActionButtonProps) {
