@@ -226,7 +226,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
     /* form validation  */
     const enquirySubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        
+
         const re = /^[A-Za-z\s]+$/;
         const onlyNumber = /^[0-9]+$/;
         const validEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -416,7 +416,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
             <div className="enquery-parent-container">
 
                 <div className="contact-info-left-inside-container">
-                    <Slide direction="right">
+                    <Zoom >
                         <div className='enquiry-card-container'>
                             <div>
                                 <Image className='info-img' src={locationIcon} alt="Aperture Abhijit" />
@@ -426,6 +426,8 @@ function Enquery({ onLoaded }: EnqueryProps) {
                                 <div className='info-details'><h6>Abhijit Saha <br /> 17/5, Boasepukur Raod, Sonartari Appartment, Flat No: 8, 4th Floor <br /> Kolkata-700084, India</h6></div>
                             </div>
                         </div>
+                    </Zoom>
+                    <Zoom>
                         <div className='enquiry-card-container'>
                             <div>
                                 <Image className='info-img' src={phoneIcon} alt="Aperture Abhijit" />
@@ -435,12 +437,12 @@ function Enquery({ onLoaded }: EnqueryProps) {
                                 <div className='info-details'><a href={`tel:` + 9732814504}><h6>{9732814504}</h6></a></div>
                             </div>
                         </div>
-                    </Slide>
+                    </Zoom>
                 </div>
 
 
                 <div className="enquery-container">
-                    <Slide direction="left">
+                    <Zoom >
                         <div className='enquiry_now_container' id='enquiry-now'>
                             <div className='section-heading'><h4>Enquery<span className='success-message'>{isShowMessage}</span></h4></div>
                             <form onSubmit={onSubmit}>
@@ -628,14 +630,14 @@ function Enquery({ onLoaded }: EnqueryProps) {
                                     </div>
                                 </div>
                                 {/* <div className={`enquiry-submit-container ${!isShowLoader ? 'cursor-pointer' : ''}`} onClick={!isShowLoader ? enquirySubmit : undefined}>{isShowLoader ? <Spinner /> : <><span>Submit</span></>}</div> */}
-                                <ActionButton text={'Submit'} onClick={(e:any) => enquirySubmit(e)} />
+                                <ActionButton text={'Submit'} onClick={(e: any) => enquirySubmit(e)} />
 
 
                             </form>
                             {/* <div className='enquiry-submit-container'>Submit</div> */}
 
                         </div>
-                    </Slide>
+                    </Zoom>
                 </div>
 
             </div>
