@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 
+
+
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -15,6 +17,17 @@ import phoneIcon from '../../../../public/phone-icon-white.png';
 import { ActionButton } from "../button/ActionButton";
 
 import { Slide, AttentionSeeker, Zoom, Bounce, Flip, Hinge, JackInTheBox, Roll } from "react-awesome-reveal";
+
+// type SheetRow = Record<string, string>;
+interface SheetRow {
+    [key: string]: string | boolean | number;
+}
+/* type SheetData = {
+    title: string;
+    values: string[][];
+}; */
+
+type ParsedSheet = Record<string, string>[];
 
 interface UserInfo {
     fname: string;
@@ -92,10 +105,85 @@ function Enquery({ onLoaded }: EnqueryProps) {
     useEffect(() => {
         if (onLoaded) onLoaded()
         // Optional: return cleanup function if necessary
+
         return () => {
 
         };
     }, []);
+
+
+    //Single google sheet
+   /*  useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch('/.netlify/functions/sheets'); // Or your API endpoint
+                const json = await res.json();
+
+                if (!res.ok) throw new Error(json.message || 'Unknown error');
+
+                console.log('Sheet Data:', json.data);
+
+                const [headers, ...rows]: string[][] = json.data;
+
+                const jsonData: SheetRow[] = rows.map((row) =>
+                    headers.reduce<SheetRow>((obj, header, i) => {
+                        obj[header] = row[i] ?? ''; // Safe fallback
+                        return obj;
+                    }, {})
+                );
+
+                console.log('Parsed JSON Data:', jsonData);
+            } catch (err) {
+                console.error('Failed to fetch sheet data:', err);
+            }
+        };
+
+        fetchData();
+    }, []);
+ */
+    //All Google sheet
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch('/.netlify/functions/sheets');
+                const json = await res.json();
+
+                if (!res.ok) throw new Error(json.message || 'Unknown error');
+
+                console.log('Full JSON Response:', json);
+
+                // Ensure data is an array of arrays
+                const [headers, ...rows]: string[][] = json.data;
+
+                const parsed: SheetRow[] = rows.map((row) =>
+                    headers.reduce((obj: SheetRow, header, i) => {
+                        let value: any = row[i];
+
+                        const normalized = String(value).trim().toLowerCase();
+
+                        if (normalized === 'true') {
+                            value = true;
+                        } else if (normalized === 'false') {
+                            value = false;
+                        } else if (!isNaN(Number(value)) && value !== '') {
+                            value = Number(value);
+                        }
+
+                        obj[header] = value;
+                        return obj;
+                    }, {})
+                );
+
+                console.log('Parsed JSON Data:', parsed);
+                // You can now set this to state or pass to context etc.
+            } catch (err) {
+                console.error('Failed to fetch sheet data:', err);
+            }
+        };
+
+        fetchData();
+    }, []);
+
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -128,7 +216,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
         if (saveEnquiry === 'success') {
             setIsShowLoader(false);
             setIsShowMessage("Your Enquery hass been send")
-            /* setEnquiryDetails((prevState) => ({
+            setEnquiryDetails((prevState) => ({
                 ...prevState,
                 fname: "",
                 lname: "",
@@ -137,7 +225,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
                 message: "",
                 captcha: "",
 
-            })); */
+            }));
             setSaveEnquiry("");
             refreshCaptchText();
         }
@@ -373,7 +461,7 @@ function Enquery({ onLoaded }: EnqueryProps) {
             setIsShowLoader(true)
             const statusUpdated = setTimeout(() => {
                 // Call your function here
-                setSaveEnquiry("success")
+                // setSaveEnquiry("success")
             }, 5000); // Delay in milliseconds (5000ms = 5 seconds)
             const enqueryData = { fname: enquiryDetails.fname, lname: enquiryDetails.lname, phone_no: enquiryDetails.phone, email: enquiryDetails.email, message: enquiryDetails.message, eventDate: enquiryDetails.eventDate, eventTypeOption: enquiryDetails.eventTypeOption, location: enquiryDetails.location }
 
@@ -392,8 +480,12 @@ function Enquery({ onLoaded }: EnqueryProps) {
                 body: JSON.stringify(enqueryData),
             });
 
-            if (res.ok) alert('Message sent!')
-            else alert('Failed to send message.')
+            if (res.ok) {
+                setSaveEnquiry("success")
+                alert('Message sent!')
+            } else {
+                alert('Failed to send message.')
+            }
 
         }
         // refreshCaptchText();

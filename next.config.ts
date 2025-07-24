@@ -29,6 +29,18 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.josetxu.com',
         port: '',
         pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+        port: '',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.birds.com',
+        port: '',
+        pathname: '**',
       }
     ],
   },

@@ -111,6 +111,7 @@ body {
   background-position: center;
   display: block;
   z-index: 100;
+  overflow: hidden;
   
 }
 
@@ -295,3 +296,14 @@ body {
     display: block;
   }
 }
+
+#test-background 
+  {
+  width:300px;
+  height:300px;
+  border:3px solid #eb0909;
+  background-image:url('http://www.birds.com/wp-content/uploads/home/bird4.jpg');
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  object-fit: contain;
+  }

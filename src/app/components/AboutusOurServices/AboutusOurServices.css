@@ -25,12 +25,17 @@
     position: relative;
 }
 
-.aboutus-our-services-container-card-container {
+/* .aboutus-our-services-container-card-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
-
+ */
+.aboutus-our-services-container-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
 
 .aboutus-our-services-container-card {
@@ -42,7 +47,8 @@
     border-radius: 8px;
     padding: 20px;
     margin: 20px;
-    grid-column: span 1;
+    /* grid-column: span 1; */
+    flex: 1 0 300px;
 }
 
 .aboutus-our-services-container-card h3 {
